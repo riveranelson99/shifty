@@ -6,7 +6,7 @@ type User {
     username: String!
     email: String 
     workplaces: String
-    rate: Integer! 
+    rate: Int! 
 }
 
 
@@ -21,7 +21,7 @@ type Job {
     _id: ID!
     jobTitle: String!
     description: String! 
-    rate: Number!
+    rate: Int!
     startDate: String!
     endDate: String!
 }
@@ -34,15 +34,20 @@ type Auth {
 
 type Query {
     me: User
+    user(username: String!): User
+    posts: [Post]!
+    post(postId: ID!): Post
+    jobs: [Job]!
+    job(jobId: ID!): Job
 }
 
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(postId: ID!, postTitle: String!, postContent: String!): User
-    addJob(jobId: ID!, jobTitle: String!, jobDescription: String!, jobRate: Number!, jobStartDate: String!, jobEndDate: String!): User
-    editPost()
-    editJob()
+    addJob(jobId: ID!, jobTitle: String!, jobDescription: String!, jobRate: Int!, jobStartDate: String!, jobEndDate: String!): User
+    # editPost()
+    # editJob()
     deletePost(postId: ID!): Post
     deleteJob(jobId: ID!): Job
 }
