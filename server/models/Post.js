@@ -13,7 +13,7 @@ const postSchema = new Schema ({
         required: true,
         get: (timestamp) => dateFormat(timestamp)
     },
-    description: {
+    content: {
         type: String,
         required: true,
         trim: true
