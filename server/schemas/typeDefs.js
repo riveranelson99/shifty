@@ -41,8 +41,8 @@ type Mutation {
     addJob()
     editPost()
     editJob()
-    deletePost()
-    deleteJob()
+    deletePost(postId: ID!): Post
+    deleteJob(jobId: ID!): Job
 }
 
 `;
