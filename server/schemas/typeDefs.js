@@ -34,6 +34,11 @@ type Auth {
 
 type Query {
     me: User
+    user(username: String!): User
+    posts: [Post]!
+    post(postId: ID!): Post
+    jobs: [Job]!
+    job(jobId: ID!): Job
 }
 
 type Mutation {
