@@ -26,6 +26,10 @@ const userSchema = new Schema ({
         maxlength: 240,
         trim: true,
     },
+    employer: {
+        type: Boolean,
+        required: 'Are you an employer? Please specify.',
+    },
     workplaces: [
         {
             type: String,
