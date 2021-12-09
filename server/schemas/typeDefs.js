@@ -6,7 +6,9 @@ type User {
     username: String!
     email: String 
     workplaces: String
-    rate: Int! 
+    rate: Int!
+    posts: [Post]
+    jobs: [Job]
 }
 
 

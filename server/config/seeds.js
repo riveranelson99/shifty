@@ -2,7 +2,7 @@ const db = require('./connection');
 const { User, Post, Job } = require('../models');
 
 db.once('open', async () => {
-
+try {
   //// POST SEEDING
   await Post.deleteMany();
 
@@ -30,7 +30,7 @@ db.once('open', async () => {
     {
       title: 'Great experience',
       content: 'I worked a shift last night with Mack at Mattengas, and LOVED it.  Mack was so helpful getting me situated, and then trusted me to handle the shift.  I will go back anytime!',
-      datePosted: 12/09/21,
+      datePosted: '12/09/21',
     },
     {
       title: 'Steer clear',
@@ -109,16 +109,8 @@ db.once('open', async () => {
       ],
       rate: 35,
       employer: true,
-      posts: [
-        {
-          posts: [posts[0]._id, posts[4]._id, posts[5]._id]
-        }
-      ],
-      jobs: [
-        {
-          jobs: [jobs[0]._id, jobs[1]._id]
-        }
-      ],
+      posts: [posts[0]._id, posts[4]._id, posts[5]._id],
+      jobs: [jobs[0]._id, jobs[1]._id]
     },
     {
       username: 'marymastersbars',
@@ -128,11 +120,7 @@ db.once('open', async () => {
       workplaces: 'Main Street Bar, Zombies Bar, Freelance',
       rate: 50,
       employer: false,
-      posts: [
-        {
-          posts: [posts[1]._id, posts[2]._id,]
-        }
-      ],
+      posts: [posts[1]._id, posts[2]._id,]
     },
     {
       username: 'barninja',
@@ -142,11 +130,7 @@ db.once('open', async () => {
       workplaces: 'Moe\'s Pub',
       rate: 25,
       employer: false,
-      posts: [
-        {
-          posts: [posts[5]._id]
-        }
-      ],
+      posts: [posts[5]._id],
     },
     {
       username: 'Boss',
@@ -156,11 +140,7 @@ db.once('open', async () => {
       workplaces: 'Eberly, Special Events',
       rate: 31,
       employer: true,
-      jobs: [
-        {
-          jobs: [jobs[2]._id, jobs[3]._id]
-        }
-      ],
+      jobs: [jobs[2]._id, jobs[3]._id],
     },
     {
       username: 'Joan Wick',
@@ -170,21 +150,15 @@ db.once('open', async () => {
       workplaces: 'EventsToYou',
       rate: 30,
       employer: true,
-      posts: [
-        {
-          posts: [posts[3]._id]
-        }
-      ],
-      jobs: [
-        {
-          jobs: [jobs[4]._id]
-        }
-      ],
+      posts: [posts[3]._id],
+      jobs: [jobs[4]._id]
     },
   ]);
 
   console.log('users seeded');
 
-
-  process.exit();
+} catch(err) {
+  console.error(err);  
+}
+process.exit();
 });
