@@ -38,7 +38,7 @@ db.once('open', async () => {
       employer: false,
       posts: [
         {
-          posts: [posts[1]._id, posts[2]._id, posts[3]._id]
+          posts: [posts[1]._id, posts[2]._id,]
         }
       ],
     },
@@ -64,11 +64,6 @@ db.once('open', async () => {
       workplaces: 'Eberly, Special Events',
       rate: 31,
       employer: true,
-      posts: [
-        {
-          posts: [posts[7]._id]
-        }
-      ],
       jobs: [
         {
           jobs: [jobs[2]._id, jobs[3]._id]
@@ -85,7 +80,7 @@ db.once('open', async () => {
       employer: true,
       posts: [
         {
-          posts: [posts[8]._id]
+          posts: [posts[3]._id]
         }
       ],
       jobs: [
@@ -97,9 +92,6 @@ db.once('open', async () => {
   ]);
 
   console.log('users seeded');
-
-
-
 
 
 
@@ -155,42 +147,40 @@ db.once('open', async () => {
 
 
 
-
-
-
-
   //// POST SEEDING
   await Post.deleteMany();
 
   const posts = await Post.insertMany([
     {
-      name: 'job name 1',
-      description: 'prohibition style party',
-      dates: '12/13/21-12/15/21',
-      rate: 1000,
-      job: jobs[0]._id
+      title: 'Interesting tidbit',
+      content: 'Did you know a margarita has different flavors',
+      datePosted: 12/13/21,
     },
     {
-      name: 'job name 2',
-      description: 'Family reunion',
-      dates: '12/20/21',
-      rate: 500,
-      job: jobs[3]._id
+      title: 'Did you know',
+      content: 'Liquor is a liquid',
+      datePosted: 12/09/21,
     },
     {
-      name: 'job name 3',
-      description: 'Northwestern University Christmas party',
-      dates: '12/23/21',
-      rate: 1500,
-      job: jobs[2]._id
+      title: 'Here\'s a great recipe to try',
+      content: 'Add a bay leaf to blueberry vodka.  You\'re welcome!',
+      datePosted: 12/10/21,
     },
     {
-      name: 'job name 4',
-      description: 'Museum of Science and Industry',
-      dates: '12/20/21',
-      rate: 2348,
-      job: jobs[4]._id
+      title: 'Article',
+      content: 'I read a great article on trying new flavor combinations.  If you have time, I recommend it.',
+      datePosted: 12/01/21,
     },
+    {
+      title: 'Great experience',
+      content: 'I worked a shift last night with Mack at Mattengas, and LOVED it.  Mack was so helpful getting me situated, and then trusted me to handle the shift.  I will go back anytime!',
+      datePosted: 12/09/21,
+    },
+    {
+      title: 'Steer clear',
+      content: 'I picked up a shift at NorthEnd, and will never return.  The manager was very rude the entire shift, and didn\'t trust me to make a drink by myself.',
+      datePosted: 12/05/21,
+    },   
   ]);
 
   console.log('posts seeded');
