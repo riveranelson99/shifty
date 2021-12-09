@@ -71,7 +71,7 @@ db.once('open', async () => {
       ],
       jobs: [
         {
-          jobs: [jobs[2]._id, jobs[3]._id, jobs[4]._id]
+          jobs: [jobs[2]._id, jobs[3]._id]
         }
       ],
     },
@@ -90,7 +90,7 @@ db.once('open', async () => {
       ],
       jobs: [
         {
-          jobs: [jobs[5]._id]
+          jobs: [jobs[4]._id]
         }
       ],
     },
@@ -108,11 +108,46 @@ db.once('open', async () => {
   await Job.deletMany();
 
   const jobs = await Job.insertMany([
-    { name: 'Popup' },
-    { name: 'Chilis' },
-    { name: 'Portillos' },
-    { name: 'Eberly' },
-    { name: 'Cocktails and Culture' }
+    {
+      jobName: 'Popup',
+      description: 'Open bar at a family reunion.',
+      rate: 35,
+      datePosted: 12 / 12 / 21,
+      startDate: 12 / 20 / 21,
+      endDate: 12 / 20 / 21,
+    },
+    {
+      jobName: 'Chilis',
+      description: 'Bartending 4pm-12pm',
+      rate: 15,
+      datePosted: 12 / 9 / 21,
+      startDate: 12 / 11 / 21,
+      endDate: 12 / 14 / 21,
+    },
+    {
+      jobName: 'Portillos',
+      description: 'Christmas party with cash bar',
+      rate: 60,
+      datePosted: 12 / 07 / 21,
+      startDate: 12 / 23 / 21,
+      endDate: 12 / 24 / 21,
+    },
+    { 
+      jobName: 'Eberly',
+      description: 'Christmas party with cash bar',
+      rate: 60,
+      datePosted: 12 / 09 / 21,
+      startDate: 12 / 23 / 21,
+      endDate: 12 / 24 / 21,
+    },
+    {
+      jobName: 'Cocktails and Culture',
+      description: 'Popup at Museum of Science and Industry',
+      rate: 55,
+      datePosted: 12 / 01 / 21,
+      startDate: 12 / 11 / 21,
+      endDate: 12 / 11 /21
+    }
   ]);
 
   console.log('jobs seeded');
