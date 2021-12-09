@@ -3,6 +3,98 @@ const { User, Post, Job } = require('../models');
 
 db.once('open', async () => {
 
+  //// POST SEEDING
+  await Post.deleteMany();
+
+  const posts = await Post.insertMany([
+    {
+      title: 'Interesting tidbit',
+      content: 'Did you know a margarita has different flavors',
+      datePosted: 12/13/21,
+    },
+    {
+      title: 'Did you know',
+      content: 'Liquor is a liquid',
+      datePosted: 12/09/21,
+    },
+    {
+      title: 'Here\'s a great recipe to try',
+      content: 'Add a bay leaf to blueberry vodka.  You\'re welcome!',
+      datePosted: 12/10/21,
+    },
+    {
+      title: 'Article',
+      content: 'I read a great article on trying new flavor combinations.  If you have time, I recommend it.',
+      datePosted: 12/01/21,
+    },
+    {
+      title: 'Great experience',
+      content: 'I worked a shift last night with Mack at Mattengas, and LOVED it.  Mack was so helpful getting me situated, and then trusted me to handle the shift.  I will go back anytime!',
+      datePosted: 12/09/21,
+    },
+    {
+      title: 'Steer clear',
+      content: 'I picked up a shift at NorthEnd, and will never return.  The manager was very rude the entire shift, and didn\'t trust me to make a drink by myself.',
+      datePosted: 12/05/21,
+    },   
+  ]);
+
+  console.log('posts seeded');
+
+
+
+
+  //// JOB SEEDING
+  await Job.deletMany();
+
+  const jobs = await Job.insertMany([
+    {
+      jobName: 'Popup',
+      description: 'Open bar at a family reunion.',
+      rate: 35,
+      datePosted: 12 / 12 / 21,
+      startDate: 12 / 20 / 21,
+      endDate: 12 / 20 / 21,
+    },
+    {
+      jobName: 'Chilis',
+      description: 'Bartending 4pm-12pm',
+      rate: 15,
+      datePosted: 12 / 9 / 21,
+      startDate: 12 / 11 / 21,
+      endDate: 12 / 14 / 21,
+    },
+    {
+      jobName: 'Portillos',
+      description: 'Christmas party with cash bar',
+      rate: 60,
+      datePosted: 12 / 07 / 21,
+      startDate: 12 / 23 / 21,
+      endDate: 12 / 24 / 21,
+    },
+    { 
+      jobName: 'Eberly',
+      description: 'Christmas party with cash bar',
+      rate: 60,
+      datePosted: 12 / 09 / 21,
+      startDate: 12 / 23 / 21,
+      endDate: 12 / 24 / 21,
+    },
+    {
+      jobName: 'Cocktails and Culture',
+      description: 'Popup at Museum of Science and Industry',
+      rate: 55,
+      datePosted: 12 / 01 / 21,
+      startDate: 12 / 11 / 21,
+      endDate: 12 / 11 /21
+    }
+  ]);
+
+  console.log('jobs seeded');
+
+
+
+
   // USER SEEDING
   await User.deleteMany();
 
@@ -92,99 +184,6 @@ db.once('open', async () => {
   ]);
 
   console.log('users seeded');
-
-
-
-
-  //// JOB SEEDING
-  await Job.deletMany();
-
-  const jobs = await Job.insertMany([
-    {
-      jobName: 'Popup',
-      description: 'Open bar at a family reunion.',
-      rate: 35,
-      datePosted: 12 / 12 / 21,
-      startDate: 12 / 20 / 21,
-      endDate: 12 / 20 / 21,
-    },
-    {
-      jobName: 'Chilis',
-      description: 'Bartending 4pm-12pm',
-      rate: 15,
-      datePosted: 12 / 9 / 21,
-      startDate: 12 / 11 / 21,
-      endDate: 12 / 14 / 21,
-    },
-    {
-      jobName: 'Portillos',
-      description: 'Christmas party with cash bar',
-      rate: 60,
-      datePosted: 12 / 07 / 21,
-      startDate: 12 / 23 / 21,
-      endDate: 12 / 24 / 21,
-    },
-    { 
-      jobName: 'Eberly',
-      description: 'Christmas party with cash bar',
-      rate: 60,
-      datePosted: 12 / 09 / 21,
-      startDate: 12 / 23 / 21,
-      endDate: 12 / 24 / 21,
-    },
-    {
-      jobName: 'Cocktails and Culture',
-      description: 'Popup at Museum of Science and Industry',
-      rate: 55,
-      datePosted: 12 / 01 / 21,
-      startDate: 12 / 11 / 21,
-      endDate: 12 / 11 /21
-    }
-  ]);
-
-  console.log('jobs seeded');
-
-
-
-
-  //// POST SEEDING
-  await Post.deleteMany();
-
-  const posts = await Post.insertMany([
-    {
-      title: 'Interesting tidbit',
-      content: 'Did you know a margarita has different flavors',
-      datePosted: 12/13/21,
-    },
-    {
-      title: 'Did you know',
-      content: 'Liquor is a liquid',
-      datePosted: 12/09/21,
-    },
-    {
-      title: 'Here\'s a great recipe to try',
-      content: 'Add a bay leaf to blueberry vodka.  You\'re welcome!',
-      datePosted: 12/10/21,
-    },
-    {
-      title: 'Article',
-      content: 'I read a great article on trying new flavor combinations.  If you have time, I recommend it.',
-      datePosted: 12/01/21,
-    },
-    {
-      title: 'Great experience',
-      content: 'I worked a shift last night with Mack at Mattengas, and LOVED it.  Mack was so helpful getting me situated, and then trusted me to handle the shift.  I will go back anytime!',
-      datePosted: 12/09/21,
-    },
-    {
-      title: 'Steer clear',
-      content: 'I picked up a shift at NorthEnd, and will never return.  The manager was very rude the entire shift, and didn\'t trust me to make a drink by myself.',
-      datePosted: 12/05/21,
-    },   
-  ]);
-
-  console.log('posts seeded');
-
 
 
   process.exit();
