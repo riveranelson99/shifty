@@ -2,6 +2,109 @@ const db = require('./connection');
 const { User, Post, Job } = require('../models');
 
 db.once('open', async () => {
+
+  // USER SEEDING
+  await User.deleteMany();
+
+  await User.insertMany([
+    {
+      username: 'larrylern',
+      email: 'larrylernantino@test.com',
+      password: 'password12345',
+      bio: 'Bartending since the dinosaurs.  Pouring cocktails with flair and pizaz.',
+      workplaces: [
+        'Bar America, The Local Bar, On The Rocks'
+      ],
+      rate: 35,
+      employer: true,
+      posts: [
+        {
+          posts: [posts[0]._id, posts[4]._id, posts[5]._id]
+        }
+      ],
+      jobs: [
+        {
+          jobs: [jobs[0]._id, jobs[1]._id]
+        }
+      ],
+    },
+    {
+      username: 'marymastersbars',
+      email: 'marymasterson@testmail.com',
+      password: 'password12345',
+      bio: 'LOOOOOOOVE mimosas and doing parties.  Let\'s have fun!',
+      workplaces: 'Main Street Bar, Zombies Bar, Freelance',
+      rate: 50,
+      employer: false,
+      posts: [
+        {
+          posts: [posts[1]._id, posts[2]._id, posts[3]._id]
+        }
+      ],
+    },
+    {
+      username: 'barninja',
+      email: 'bartsimpson@test.com',
+      password: 'password13579',
+      bio: 'Beer conniseur.  Test me, I bet I\'ll pass.',
+      workplaces: 'Moe\'s Pub',
+      rate: 25,
+      employer: false,
+      posts: [
+        {
+          posts: [posts[6]._id]
+        }
+      ],
+    },
+    {
+      username: 'Boss',
+      email: 'stanleyyelnats@testing.com',
+      password: 'password2468',
+      bio: 'In need of good, honest people to help staff special events.',
+      workplaces: 'Eberly, Special Events',
+      rate: 31,
+      employer: true,
+      posts: [
+        {
+          posts: [posts[7]._id]
+        }
+      ],
+      jobs: [
+        {
+          jobs: [jobs[2]._id, jobs[3]._id, jobs[4]._id]
+        }
+      ],
+    },
+    {
+      username: 'Joan Wick',
+      email: 'joannie@testingemails.com',
+      password: 'password54321',
+      bio: 'Popups are my thing.  Any and every where.  Join my team.',
+      workplaces: 'EventsToYou',
+      rate: 30,
+      employer: true,
+      posts: [
+        {
+          posts: [posts[8]._id]
+        }
+      ],
+      jobs: [
+        {
+          jobs: [jobs[5]._id]
+        }
+      ],
+    },
+  ]);
+
+  console.log('users seeded');
+
+
+
+
+
+
+
+  //// JOB SEEDING
   await Job.deletMany();
 
   const jobs = await Job.insertMany([
@@ -9,11 +112,19 @@ db.once('open', async () => {
     { name: 'Chilis' },
     { name: 'Portillos' },
     { name: 'Eberly' },
-    { name: 'Cocktails and Culture'}
+    { name: 'Cocktails and Culture' }
   ]);
 
   console.log('jobs seeded');
 
+
+
+
+
+
+
+
+  //// POST SEEDING
   await Post.deleteMany();
 
   const posts = await Post.insertMany([
@@ -49,48 +160,7 @@ db.once('open', async () => {
 
   console.log('posts seeded');
 
-  await User.deleteMany();
 
-  await User.create({
-    firstName: 'Larry',
-    lastName: 'Lernantino',
-    email: 'larrylernantino@test.com',
-    password: 'password12345',
-    employer: true,
-    posts: [
-      {
-        posts: [posts[0]._id, posts[4]._id]
-      }
-    ]
-  });
-
-  await User.create({
-    firstName: 'Mary',
-    lastName: 'Masterson',
-    email: 'marymasterson@testmail.com',
-    password: 'password12345',
-    employer: true,
-    posts: [
-      {
-        posts: [posts[1]._id, posts[2]._id, posts[3]._id]
-      }
-    ]
-  });
-
-  await User.create({
-    firstName: 'Jack',
-    lastName: 'Andjill',
-    email: 'jackandjill@testing.com',
-    password: 'password98765',
-    employer: false,
-    jobs: [
-      {
-        jobs: [jobs[1]._id]
-      }
-    ]
-  });
-
-  console.log('users seeded');
 
   process.exit();
 });
