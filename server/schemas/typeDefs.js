@@ -43,8 +43,8 @@ type Mutation {
     addJob(jobId: ID!, jobTitle: String!, jobDescription: String!, jobRate: Number!, jobStartDate: String!, jobEndDate: String!): User
     editPost()
     editJob()
-    deletePost()
-    deleteJob()
+    deletePost(postId: ID!): Post
+    deleteJob(jobId: ID!): Job
 }
 
 `;
