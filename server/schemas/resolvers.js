@@ -35,20 +35,20 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    editPost: async (parent, { postId }, context) => {
-      if (context.user) {
-        const updatedPost = await Post.findByIdAndUpdate(
-          { _id: context.post._id },
-          {
-            $set: {
-              description: postId
-            },
-          },
-        );
-        return updatedPost;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    // editPost: async (parent, { postId }, context) => {
+    //   if (context.user) {
+    //     const updatedPost = await Post.findByIdAndUpdate(
+    //       { _id: context.post._id },
+    //       {
+    //         $set: {
+    //           description: postId
+    //         },
+    //       },
+    //     );
+    //     return updatedPost;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
     deletePost: async (parent, { postId }, context) => {
         if (context.user) {
             const post = await Post.findOneAndDelete({
