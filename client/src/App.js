@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import {
   ApolloClient,
@@ -9,7 +9,7 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import LandingPage from './pages/landingPage';
+import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 
 const httpLink = createHttpLink({
@@ -36,18 +36,18 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <StoreProvider>
+          {/* <StoreProvider> */}
             <Nav />
-            <Switch>
+            <Routes>
               <Route exact path='/' component={LandingPage} />
-              <Route exact path='/login' component={Login} />
+              {/* <Route exact path='/login' component={Login} />
               <Route exact path='/logout' component={Logout} />
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/jobs' component={Jobs} />
               <Route exact path='/breakRoom' component={breakRoom} />
-              <Route component={NoMatch} />
-            </Switch>
-          </StoreProvider>
+              <Route component={NoMatch} /> */}
+            </Routes>
+          {/* </StoreProvider> */}
         </div>
       </Router>
     </ApolloProvider>
