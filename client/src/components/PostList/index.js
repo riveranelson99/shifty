@@ -28,4 +28,4 @@ const PostList = ({ posts }) => {
     );
 };
 
-export default JobList;
+export default PostList;
