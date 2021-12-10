@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
 // brings in graph ql 
 const typeDefs = gql`
+
+
 type User { 
     _id: ID!
     username: String!
