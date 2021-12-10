@@ -7,12 +7,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import Linkto from '@mui/material/Link';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const theme = createTheme();
@@ -21,7 +22,7 @@ const theme = createTheme();
 
 export default function Login() {
     const [formState, setFormState] = useState({ email: '', password: '' });
-    const [login, { error, data }] = useMutation(LOGIN_USER);
+    const [login, { error, data }] = useMutation(LOGIN);
 
     // update state based on form input changes
     const handleChange = (event) => {
@@ -110,9 +111,9 @@ export default function Login() {
                             </Button>
                             <Grid container>
                                 <Grid item>
-                                    <NavLink href="#" variant="body2">
+                                    <Linkto href="#" variant="body2">
                                         {"Don't have an account? Sign Up"}
-                                    </NavLink>
+                                    </Linkto>
                                 </Grid>
                             </Grid>
                         </Box>
