@@ -45,11 +45,11 @@ try {
 
 
   //// JOB SEEDING
-  await Job.deleteMany();
+  await Job.deleteMany({});
 
   const jobs = await Job.insertMany([
     {
-      jobName: 'Popup',
+      jobTitle: 'Popup',
       description: 'Open bar at a family reunion.',
       rate: 35,
       datePosted: '12 / 12 / 21',
@@ -57,7 +57,7 @@ try {
       endDate: '12 / 20 / 21',
     },
     {
-      jobName: 'Chilis',
+      jobTitle: 'Chilis',
       description: 'Bartending 4pm-12pm',
       rate: 15,
       datePosted: '12 / 9 / 21',
@@ -65,7 +65,7 @@ try {
       endDate: '12 / 14 / 21',
     },
     {
-      jobName: 'Portillos',
+      jobTitle: 'Portillos',
       description: 'Christmas party with cash bar',
       rate: 60,
       datePosted: '12 / 07 / 21',
@@ -73,7 +73,7 @@ try {
       endDate: '12 / 24 / 21',
     },
     { 
-      jobName: 'Eberly',
+      jobTitle: 'Eberly',
       description: 'Christmas party with cash bar',
       rate: 60,
       datePosted: '12 / 09 / 21',
@@ -81,7 +81,7 @@ try {
       endDate: '12 / 24 / 21',
     },
     {
-      jobName: 'Cocktails and Culture',
+      jobTitle: 'Cocktails and Culture',
       description: 'Popup at Museum of Science and Industry',
       rate: 55,
       datePosted: '12 / 01 / 21',

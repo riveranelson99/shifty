@@ -25,8 +25,8 @@ const resolvers = {
     jobs: async () => {
       return await Job.find();
     },
-    job: async (parents, { jobId }) => {
-      return await Post.findOne({ _id: jobId });
+    job: async (parent, { jobId }) => {
+      return await Job.findOne({ _id: jobId });
     },
   },
 
@@ -48,6 +48,11 @@ const resolvers = {
 
       return { token, user };
     },
+    
+    
+    //addJob:
+
+
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);

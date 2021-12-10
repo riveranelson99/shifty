@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-const jobSchema = new Schema ({
-    jobName: {
+const jobSchema = new Schema({
+    jobTitle: {
         type: String,
         required: true,
         trim: true,

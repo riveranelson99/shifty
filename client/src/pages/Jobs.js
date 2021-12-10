@@ -3,29 +3,32 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import JobList from '../components/JobList';
-//import { QUERYNAMINGCONVENTION } from '../utils/queries';
+import { QUERY_JOBS } from '../utils/queries';
 
 const Job = () => {
-  const { jobId } = useParams();
+  // const { jobId } = useParams();
 
-  // const { loading, data } = useQuery(QUERYNAMINGCONVENTION, {
-  //   variables: { jobId: jobId },
-  // });
+  const { loading, data } = useQuery(QUERY_JOBS);
 
-  const job = data?.job || {};
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const jobs = data?.jobs || [];
+console.log(jobs)
   return (
     <div>
       <h2>
         Available Jobs!
       </h2>
-
-      {job.name?.length > 0 && <JobList name={job.name} />}
+      <div>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <JobList
+          jobs={jobs}
+          title="Here's the current list of jobs available..."
+          />
+        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Job;
