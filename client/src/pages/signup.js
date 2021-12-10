@@ -13,19 +13,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
 const theme = createTheme();
 
 export default function SignUp() {
@@ -59,25 +46,15 @@ export default function SignUp() {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
-                                    autoComplete="given-name"
-                                    name="firstName"
+                                    autoComplete="User Name"
+                                    name="userName"
                                     required
                                     fullWidth
-                                    id="firstName"
-                                    label="First Name"
+                                    id="userName"
+                                    label="User Name"
                                     autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="lastName"
-                                    label="Last Name"
-                                    name="lastName"
-                                    autoComplete="family-name"
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -102,9 +79,38 @@ export default function SignUp() {
                                 />
                             </Grid>
                             <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    name="bio"
+                                    label="Short Bio 240 characters or less"
+                                    id="bio"
+                                    autoComplete="Short Bio"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    name="workplaces"
+                                    label="Past Employers"
+                                    id="workplaces"
+                                    autoComplete="Past Employers"
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    fullWidth
+                                    name="rate"
+                                    label="Pay Rate Per Hour"
+                                    id="rate"
+                                    autoComplete="Pay Rate"
+
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
                                 <FormControlLabel
-                                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                                    label="I want to receive inspiration, marketing promotions and updates via email."
+                                    control={<Checkbox value="employer" color="primary" />}
+                                    label="I am an employer and I would like to offer gigs on this Shifty!."
                                 />
                             </Grid>
                         </Grid>
