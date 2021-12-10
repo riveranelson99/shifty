@@ -28,9 +28,9 @@ export const QUERY_USER = gql`
           jobs
       }
   }`
-  ;  
+  ;
 
-export const QUERY_POST = gql `
+export const QUERY_POST = gql`
 query getPosts($category: ID) {
     postMessage(category: $category) {
         _id
@@ -39,7 +39,7 @@ query getPosts($category: ID) {
         date
     }
 }`
-;
+  ;
 
 export const QUERY_JOBS = gql`
   {
@@ -80,4 +80,4 @@ export const QUERY_POSTS = gql`
         content
         date
 }`
-;
+  ;

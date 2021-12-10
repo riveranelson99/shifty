@@ -10,6 +10,24 @@ const resolvers = {
       }
       throw new AuthenticationError('Cannot find a user with this id!');
     },
+    users: async () => {
+      return await User.find();
+    },
+    user: async (parents, { userId }) => {
+      return await User.findOne({ _id: userId });
+    },
+    posts: async () => {
+      return await Post.find();
+    },
+    post: async (parents, { postId }) => {
+      return await Post.findOne({ _id: postId });
+    },
+    jobs: async () => {
+      return await Job.find();
+    },
+    job: async (parents, { jobId }) => {
+      return await Post.findOne({ _id: jobId });
+    },
   },
 
   Mutation: {
