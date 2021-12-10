@@ -1,16 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
+
 import { setContext } from '@apollo/client/link/context';
 
 import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
+import Jobs from './pages/Jobs';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -36,22 +38,13 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <StoreProvider> */}
-            <Nav />
-            <Routes>
-              <Route exact path='/' component={LandingPage} />
-              {/* <Route exact path='/login' component={Login} />
-              <Route exact path='/logout' component={Logout} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/jobs' component={Jobs} />
-              <Route exact path='/breakRoom' component={breakRoom} />
-              <Route component={NoMatch} /> */}
-            </Routes>
-          {/* </StoreProvider> */}
+          <Nav />
+          <LandingPage />
+          <Jobs />
         </div>
       </Router>
     </ApolloProvider>
-    );
+  );
 }
 
 export default App;
