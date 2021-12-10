@@ -35,53 +35,65 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // editPost: async (parent, { postId }, context) => {
-    //   if (context.user) {
-    //     const updatedPost = await Post.findByIdAndUpdate(
-    //       { _id: context.post._id },
-    //       {
-    //         $set: {
-    //           description: postId
-    //         },
-    //       },
-    //     );
-    //     return updatedPost;
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+    editPost: async (parent, { postId, content, date }, context) => {
+      const updatedPost = await Post.findByIdAndUpdate(
+        postId,
+        {
+          $set: {
+            content: content,
+            date: date
+          },
+        },
+      );
+      return updatedPost;
+      // throw new AuthenticationError('You need to be logged in!');
+    },
+    editJob: async (parent, { jobId, description, date }, context) => {
+      const updatedJob = await Post.findByIdAndUpdate(
+        jobId,
+        {
+          $set: {
+            description: description,
+            date: date
+          },
+        },
+      );
+      return updatedJob;
+      // throw new AuthenticationError('You need to be logged in!');
+    },
     deletePost: async (parent, { postId }, context) => {
-        if (context.user) {
-            const post = await Post.findOneAndDelete({
-                _id: postId,
-                postAuthor: context.user.username,
-            });
+      if (context.user) {
+        const post = await Post.findOneAndDelete({
+          _id: postId,
+          postAuthor: context.user.username,
+        });
 
-            await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { posts: post._id }}
-            );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { posts: post._id } }
+        );
 
-            return post;
-            
-        }
-        throw new AuthenticationError('You need to be logged in.');
+        return post;
+
+      }
+      throw new AuthenticationError('You need to be logged in.');
     },
     deleteJob: async (parent, { jobId }, context) => {
-        if (context.user) {
-            const job = await Job.findOneAndDelete({
-                _id: jobId,
-                jobAuthor: context.user.username,
-            });
+      if (context.user) {
+        const job = await Job.findOneAndDelete({
+          _id: jobId,
+          jobAuthor: context.user.username,
+        });
 
-            await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { jobs: job._id }}
-            );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { jobs: job._id } }
+        );
 
-            return job;
-            
-        }
-        throw new AuthenticationError('You need to be logged in.');
+        return job;
+
+      }
+      throw new AuthenticationError('You need to be logged in.');
     }
   },
 };
