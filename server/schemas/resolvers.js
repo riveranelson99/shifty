@@ -48,16 +48,21 @@ const resolvers = {
 
       return { token, user };
     },
-    
-    
-    //addJob:
-
-
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
     },
+    addPost: async (parent, args, context) => {
+      if (context.user) {
+        return await Post.create(args)
+      }
+    },
+    // addJob: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return await Job.create(args)
+    //   }
+    // },
     editPost: async (parent, { postId, content, date }, context) => {
       const updatedPost = await Post.findByIdAndUpdate(
         postId,
