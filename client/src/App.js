@@ -1,19 +1,25 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import './App.css';
+
 import { setContext } from '@apollo/client/link/context';
 
 import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
+<<<<<<< HEAD
+import Jobs from './pages/Jobs';
+//import login from './pages/login'
+=======
 import Login from './pages/Login'
 import SignUP from './pages/SignUp'
 import SignUp from './pages/SignUp';
+>>>>>>> 4b284a3395794e80d644061181537f82cbb3f5b3
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -56,7 +62,7 @@ function App() {
         </div>
       </Router>
     </ApolloProvider>
-    );
+  );
 }
 
 export default App;
