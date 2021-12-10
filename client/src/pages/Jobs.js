@@ -3,14 +3,14 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import JobList from '../components/JobList';
-import { QUERYNAMINGCONVENTION } from '../utils/queries';
+//import { QUERYNAMINGCONVENTION } from '../utils/queries';
 
 const Job = () => {
   const { jobId } = useParams();
 
-  const { loading, data } = useQuery(QUERYNAMINGCONVENTION, {
-    variables: { jobId: jobId },
-  });
+  // const { loading, data } = useQuery(QUERYNAMINGCONVENTION, {
+  //   variables: { jobId: jobId },
+  // });
 
   const job = data?.job || {};
 
@@ -27,3 +27,5 @@ const Job = () => {
     </div>
   )
 }
+
+export default Job;
