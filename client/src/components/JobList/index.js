@@ -28,3 +28,5 @@ const JobList = ({ jobs }) => {
         </div>
     );
 };
+
+export default JobList;
