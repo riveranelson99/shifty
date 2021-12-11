@@ -58,11 +58,11 @@ const resolvers = {
         return await Post.create(args)
       }
     },
-    // addJob: async (parent, args, context) => {
-    //   if (context.user) {
-    //     return await Job.create(args)
-    //   }
-    // },
+    addJob: async (parent, args, context) => {
+      if (context.user) {
+        return await Job.create(args)
+      }
+    },
     editPost: async (parent, { postId, content, date }, context) => {
       const updatedPost = await Post.findByIdAndUpdate(
         postId,
