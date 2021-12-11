@@ -50,7 +50,10 @@ const resolvers = {
     },
     
     
-    //addJob:
+    addJob: async (parent, { jobTitle, description, rate, datePosted, startDate, endDate }) => {
+      const job = await Job.create({ jobTitle, description, rate, datePosted, startDate, endDate });
+      return 
+    }
 
 
     addUser: async (parent, { username, email, password }) => {
