@@ -14,7 +14,10 @@ import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
-import Login from './pages/Login'
+
+import Login from './pages/LoginPage'
+import SignUp from './pages/SignUpPage'
+
 // import SignUp from './pages/SignUp';
 
 const httpLink = createHttpLink({

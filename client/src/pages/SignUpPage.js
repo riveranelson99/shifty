@@ -5,25 +5,51 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
+import LinkTo from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const theme = createTheme();
 
 export default function SignUp() {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+    const [formState, setFormState] = useState({
+        username: '',
+        email: '',
+        password: '',
+    });
+    const [addUser, { error, data }] = useMutation(ADD_USER);
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+
+        setFormState({
+            ...formState,
+            [name]: value,
         });
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        console.log(formState);
+
+        try {
+            const { data } = await addUser({
+                variables: { ...formState },
+            });
+
+            Auth.login(data.addUser.token);
+        } catch (e) {
+            console.error(e);
+        }
     };
 
     return (
@@ -44,7 +70,7 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={12}>
                                 <TextField
@@ -55,6 +81,8 @@ export default function SignUp() {
                                     id="userName"
                                     label="User Name"
                                     autoFocus
+                                    value={formState.userName}
+                                    onChange={handleChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -65,6 +93,8 @@ export default function SignUp() {
                                     label="Email Address"
                                     name="email"
                                     autoComplete="email"
+                                    value={formState.email}
+                                    onChange={handleChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -76,6 +106,8 @@ export default function SignUp() {
                                     type="password"
                                     id="password"
                                     autoComplete="new-password"
+                                    value={formState.password}
+                                    onChange={handleChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -86,6 +118,8 @@ export default function SignUp() {
                                     label="Short Bio 240 characters or less"
                                     id="bio"
                                     autoComplete="Short Bio"
+                                    value={formState.bio}
+                                    onChange={handleChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -95,6 +129,8 @@ export default function SignUp() {
                                     label="Past Employers"
                                     id="workplaces"
                                     autoComplete="Past Employers"
+                                    value={formState.workplaces}
+                                    onChange={handleChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -104,6 +140,8 @@ export default function SignUp() {
                                     label="Pay Rate Per Hour"
                                     id="rate"
                                     autoComplete="Pay Rate"
+                                    value={formState.rate}
+                                    onChange={handleChange}
 
                                 />
                             </Grid>
@@ -124,9 +162,9 @@ export default function SignUp() {
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <LinkTo href="#" variant="body2">
                                     Already have an account? Sign in
-                                </Link>
+                                </LinkTo>
                             </Grid>
                         </Grid>
                     </Box>
