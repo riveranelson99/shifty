@@ -5,21 +5,18 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 
 import { setContext } from '@apollo/client/link/context';
 
 import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
-<<<<<<< HEAD
+import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
-//import login from './pages/login'
-=======
-import Login from './pages/Login'
-import SignUP from './pages/SignUp'
-import SignUp from './pages/SignUp';
->>>>>>> 4b284a3395794e80d644061181537f82cbb3f5b3
+import Login from './pages/LoginPage'
+import SignUp from './pages/SignUpPage'
+// import SignUp from './pages/SignUp';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -46,7 +43,7 @@ function App() {
       <Router>
         <div>
           {/* <StoreProvider> */}
-            <Nav />
+            <Header />
             < Login />
             < SignUp />
             <Routes>
