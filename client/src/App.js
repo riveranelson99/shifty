@@ -47,7 +47,7 @@ function App() {
             {/* < SignUp /> */}
             <Routes>
               <Route exact path='/' component={LandingPage} />
-              <Route exact path='/Login' component={Login} />
+              {/* <Route exact path='/Login' component={Login} /> */}
               {/* <Route exact path='/logout' component={Logout} />
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/jobs' component={Jobs} />

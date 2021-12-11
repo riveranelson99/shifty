@@ -64,7 +64,6 @@ export const QUERY_USERS = gql`
           rate
           posts
           jobs
-    }
   }
 `;
 
