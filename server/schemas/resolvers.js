@@ -48,11 +48,12 @@ const resolvers = {
 
       return { token, user };
     },
-    
-    
+
+
     addJob: async (parent, args, context) => {
-      if (context.user) {}
-      return 
+      if (context.user) {
+        return await Job.create(args)
+      }
     },
 
     addUser: async (parent, { username, email, password }) => {
