@@ -21,14 +21,14 @@ const userSchema = new Schema ({
     },
     bio: {
         type: String,
-        required: 'Please provide a bio.',
+        require: 'Please provide a bio.',
         minlength: 1,
         maxlength: 240,
         trim: true,
     },
     employer: {
         type: Boolean,
-        required: 'Are you an employer? Please specify.',
+        require: 'Are you an employer? Please specify.',
     },
     workplaces: [
         {
@@ -38,7 +38,7 @@ const userSchema = new Schema ({
     ],
     rate: {
         type: Number,
-        required: true,
+        require: true,
         min: 0,
     },
     posts: [
@@ -54,6 +54,19 @@ const userSchema = new Schema ({
         }
     ]
 });
+
+userSchema.pre('save', async function (next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+
+    next();
+});
+
+userSchema.methods.isCorrectPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
 
 const User = model('User', userSchema);
 

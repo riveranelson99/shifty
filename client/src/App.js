@@ -14,9 +14,8 @@ import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
-
-import Login from './pages/LoginPage'
-import SignUp from './pages/SignUpPage'
+import Login from './pages/LoginPage';
+import SignUp from './pages/SignUpPage';
 
 // import SignUp from './pages/SignUp';
 
@@ -46,11 +45,12 @@ function App() {
         <div>
           {/* <StoreProvider> */}
             <Header />
-            {/* < Login /> */}
-            {/* < SignUp /> */}
+            < Login />
+            < SignUp />
+            {/* < Jobs /> */}
             <Routes>
-              <Route exact path='/' component={LandingPage} />
-              <Route exact path='/Login' component={Login} />
+              {/* <Route exact path='/' component={LandingPage} /> */}
+              {/* <Route exact path='/Login' component={Login} /> */}
               {/* <Route exact path='/logout' component={Logout} />
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/jobs' component={Jobs} />
