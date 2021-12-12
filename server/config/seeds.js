@@ -98,7 +98,7 @@ try {
   // USER SEEDING
   await User.deleteMany();
 
-  await User.insertMany([
+  const users = await User.insertMany([
     {
       username: 'larrylern',
       email: 'larrylernantino@test.com',

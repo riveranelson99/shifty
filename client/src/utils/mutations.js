@@ -48,11 +48,14 @@ export const ADD_USER = gql`
 //   }
 // `;
 
+
 // export const EDIT_POST = gql`
 //   mutation editPost(postId: ID!, content: String!) {
 
+
 //   }
 // `;
+
 
 // export const EDIT_JOB = gql`
 //   mutation editJob(jobId: ID!) {

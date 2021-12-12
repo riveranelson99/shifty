@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobList = ({ users }) => {
+const TalentList = ({ users }) => {
     if (!users.length) {
         return <h3>No Talent Yet</h3>
     }
@@ -8,7 +8,6 @@ const JobList = ({ users }) => {
 
     return (
         <div>
-            {/* <h3 className="text-primary">{job.jobTitle}</h3> */}
             <div className="flex-row justify-space-between my-4">
                 {users &&
                     users.map((user) => (
@@ -17,7 +16,7 @@ const JobList = ({ users }) => {
                                 <h4 className="card-header bg-dark text-light p-2 m-0">
                                     {user.username} <br />
                                     <span className="text-white" style={{ fontSize: '1rem' }}>
-                                        Description:
+                                        Bio:
                                         {user.bio}
                                     </span>
                                     <span className="text-white" style={{ fontSize: '1rem' }}>
@@ -33,4 +32,4 @@ const JobList = ({ users }) => {
     );
 };
 
-export default JobList;
+export default TalentList;
