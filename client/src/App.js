@@ -14,8 +14,11 @@ import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
-import Login from './pages/LoginPage';
-import SignUp from './pages/SignUpPage';
+
+import Talent from './pages/TalentPage';
+import Login from './pages/LoginPage'
+import SignUp from './pages/SignUpPage'
+
 
 // import SignUp from './pages/SignUp';
 
@@ -41,6 +44,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      < Talent />
       <Router>
         <div>
           {/* <StoreProvider> */}
