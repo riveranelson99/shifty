@@ -14,13 +14,9 @@ import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
-
+import Login from './pages/LoginPage';
+import SignUp from './pages/SignUpPage';
 import Talent from './pages/TalentPage';
-import Login from './pages/LoginPage'
-import SignUp from './pages/SignUpPage'
-
-
-// import SignUp from './pages/SignUp';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,23 +40,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      < Talent />
+      {/* < Talent /> */}
       <Router>
         <div>
           {/* <StoreProvider> */}
             <Header />
-            < Login />
-            < SignUp />
+            {/*             
             < Talent />
-            {/* < Jobs /> */}
+             */}
             <Routes>
-              {/* <Route exact path='/' component={LandingPage} /> */}
-              {/* <Route exact path='/Login' component={Login} /> */}
-              {/* <Route exact path='/logout' component={Logout} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/jobs' component={Jobs} />
-              <Route exact path='/breakRoom' component={breakRoom} />
-              <Route component={NoMatch} /> */}
+              <Route exact path='/' element={<LandingPage />} />
+              <Route exact path='/jobs' element={<Jobs />} />
+              <Route exact path='/login' element={<Login />} />
+              <Route exact path='/signup' element={<SignUp />} />
+              {/* <Route exact path='/breakRoom' element={<breakRoom />} /> */}
+              {/* <Route exact path='/logout' element={<Logout />} /> */}
+              {/* <Route exact path='/profile' component={<Profile />} /> */}
             </Routes>
           {/* </StoreProvider> */}
         </div>

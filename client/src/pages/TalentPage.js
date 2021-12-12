@@ -1,11 +1,13 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+
 import TalentList from '../components/TalentList';
 import { QUERY_USERS } from '../utils/queries';
 
 
 const Talent = () => {
+    // const { userId } = use Params();
 
     const { loading, data } = useQuery(QUERY_USERS);
 
