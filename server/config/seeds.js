@@ -96,7 +96,7 @@ try {
 
 
   // USER SEEDING
-  await User.deleteMany();
+  await User.deleteMany({});
 
   const users = await User.insertMany([
     {
@@ -109,8 +109,8 @@ try {
       ],
       rate: 35,
       employer: true,
-      posts: [posts[0]._id, posts[4]._id, posts[5]._id],
-      jobs: [jobs[0]._id, jobs[1]._id]
+      // posts: [posts[0]._id, posts[4]._id, posts[5]._id],
+      // jobs: [jobs[0]._id, jobs[1]._id]
     },
     {
       username: 'marymastersbars',

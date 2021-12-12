@@ -18,8 +18,6 @@ import Login from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import Talent from './pages/TalentPage';
 
-// import SignUp from './pages/SignUp';
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -42,22 +40,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      < Talent />
+      {/* < Talent /> */}
       <Router>
         <div>
           {/* <StoreProvider> */}
             <Header />
-            < Login />
+            {/* < Login />
             < SignUp />
             < Talent />
-            {/* < Jobs /> */}
+            < Jobs /> */}
             <Routes>
+              <Route exact path='/jobs' element={<Jobs />} />
+              {/* <Route exact path='/breakRoom' component={breakRoom} /> */}
               {/* <Route exact path='/' component={LandingPage} /> */}
               {/* <Route exact path='/Login' component={Login} /> */}
               {/* <Route exact path='/logout' component={Logout} />
               <Route exact path='/profile' component={Profile} />
-              <Route exact path='/jobs' component={Jobs} />
-              <Route exact path='/breakRoom' component={breakRoom} />
               <Route component={NoMatch} /> */}
             </Routes>
           {/* </StoreProvider> */}
