@@ -50,8 +50,8 @@ query getPosts($category: ID) {
         content
         date
     }
-}`
-  ;
+  }
+`;
 
 
 
@@ -68,10 +68,10 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_POSTS = gql` 
-{
+  {
     _id
         title
         content
         date
-}`
-  ;
+  }
+`;

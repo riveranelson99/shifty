@@ -13,7 +13,6 @@ export const LOGIN = gql`
 `;
 
 export const ADD_USER = gql`
-
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
@@ -39,6 +38,12 @@ export const ADD_USER = gql`
 
 // export const ADD_JOB = gql`
 //   mutation addJob(jobId: ID!, jobTitle: String!, jobDescription: String!, jobRate: Int!, jobStartDate: String!, jobEndDate: String!) {
+
+//   }
+// `;
+
+// export const EDIT_POST = gql`
+//   mutation editPost(postId: ID!, content: String!) {
 
 //   }
 // `;
