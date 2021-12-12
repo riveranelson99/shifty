@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN } from '../utils/mutations';
+// import { SignUp } from '../pages/SignUpPage';
+
+import Auth from '../utils/auth';
+
+//styling
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,14 +19,12 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useMutation } from '@apollo/client';
-import { LOGIN } from '../utils/mutations';
-import Auth from '../utils/auth';
+
 
 const theme = createTheme();
 
 
-export default function Login() {
+export default function Login(props) {
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error, data }] = useMutation(LOGIN);
 
@@ -55,12 +60,11 @@ export default function Login() {
     };
 
     return (
-
-
         <div>
             <ThemeProvider theme={theme}>
                 <Container component="main" maxWidth="xs">
-                    <CssBaseline />
+
+                    {/* <CssBaseline /> */}
                     <Box
                         sx={{
                             marginTop: 8,
@@ -75,48 +79,62 @@ export default function Login() {
                         <Typography component="h1" variant="h5">
                             Sign in
                         </Typography>
-                        <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                value={formState.email}
-                                onChange={handleChange}
-                            />
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                                value={formState.password}
-                                onChange={handleChange}
-                            />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
-                            >
-                                Sign In
-                            </Button>
-                            <Grid container>
-                                <Grid item>
-                                    <Linkto href="#" variant="body2">
+                        {data ? (
+                            <p> Success!!!!!! You may now head {' '}
+                                <Link to="/">back to the homepage.</Link>
+                            </p>
+                        ) : (
+                            <Box component="form" onSubmit={handleFormSubmit} noValidate sx={{ mt: 1 }}>
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="email"
+                                    autoFocus
+                                    value={formState.email}
+                                    onChange={handleChange}
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    autoComplete="current-password"
+                                    value={formState.password}
+                                    onChange={handleChange}
+                                />
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3, mb: 2 }}
+                                >
+                                    Sign In
+                                </Button>
+                                <Grid container>
+                                    <Grid item>
+
+                                        {/* <Link to={SignUp}>Don't have an account? Sign Up</Link> */}
+                                        {/* <Linkto href="#" variant="body2">
                                         {"Don't have an account? Sign Up"}
-                                    </Linkto>
+                                    </Linkto> */}
+                                    </Grid>
                                 </Grid>
-                            </Grid>
-                        </Box>
+                            </Box>
+                        )}
+                        {error && (
+                            <div>
+                                {error.message}
+                            </div>
+                        )}
                     </Box>
+
                 </Container>
             </ThemeProvider>
         </div>
