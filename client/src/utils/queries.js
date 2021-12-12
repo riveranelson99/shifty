@@ -50,8 +50,8 @@ query getPosts($category: ID) {
         content
         date
     }
-}`
-  ;
+  }
+`;
 
 
 
@@ -59,6 +59,7 @@ export const QUERY_USERS = gql`
 query allUsers{
   users {
     _id
+
     username
     email
     workplaces
@@ -67,13 +68,14 @@ query allUsers{
     jobs
     }
 }
+
 `;
 
 export const QUERY_POSTS = gql` 
-{
+  {
     _id
         title
         content
         date
-}`
-  ;
+  }
+`;
