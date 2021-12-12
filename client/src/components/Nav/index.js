@@ -1,4 +1,4 @@
-import * as React from 'react';
+// import * as React from 'react';
 // import Box from '@mui/material/Box';
 // import PropTypes from 'prop-types';
 // import SwipeableViews from 'react-swipeable-views';
@@ -42,56 +42,56 @@ import * as React from 'react';
 //   }
 // }
 
-export default function FullWidthTabs() {
-  // const theme = useTheme();
-  // const [value, setValue] = React.useState(0);
+// export default function FullWidthTabs() {
+//   const theme = useTheme();
+//   const [value, setValue] = React.useState(0);
 
-  // const handleChange = (event, newValue) => {
-  //   setValue(newValue);
-  // };
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
 
-  // const handleChangeIndex = (index) => {
-  //   setValue(index);
-  //};
+//   const handleChangeIndex = (index) => {
+//     setValue(index);
+//   };
 
-  return (
-    <div>
-      <p>hello</p>
-    </div>
-    // <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
-    //   <AppBar position="static">
-    //     <Tabs
-    //     value={value}
-    //     onChange={handleChange}
-    //     indicatorColor="secondary"
-    //     textColor="inherit"
-    //     variant="fullWidth"
-    //     aria-label="full width tabs example"
-    //     >
-    //       <Tab label="Profile" {...allyProps(0)} />
-    //       <Tab label="Available Jobs" {...allyProps(1)} />
-    //       <Tab label=" Skills Room" {...allyProps(2)} />
-    //       <Tab label="Login/Logout" {...allyProps(3)} />
-    //     </Tabs>
-    //   </AppBar>
-    //   <SwipeableViews
-    //   axix={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-    //   index={value}
-    //   onChangeIndex={handleChangeIndex}
-    //   >
-    //     <TabPanel value={value} index={0} dir={theme.direction}>
-    //       Profile
-    //     </TabPanel>
-    //     <TabPanel value={value} index={1} dir={theme.direction}>
-    //       Available Jobs
-    //     </TabPanel>
-    //     <TabPanel value={value} index={2} dir={theme.direction}>
-    //       Skills Room
-    //     </TabPanel>
-    //     <TabPanel value={value} index={3} dir={theme.direction}>
-    //       Login/Logout
-    //     </TabPanel>
-    //   </SwipeableViews>
-    // </Box>
-  );
-}
+//   return (
+//     // <div>
+//     //   <p>hello</p>
+//     // </div>
+//     <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
+//       <AppBar position="static">
+//         <Tabs
+//         value={value}
+//         onChange={handleChange}
+//         indicatorColor="secondary"
+//         textColor="inherit"
+//         variant="fullWidth"
+//         aria-label="full width tabs example"
+//         >
+//           <Tab label="Profile" {...allyProps(0)} />
+//           <Tab label="Available Jobs" {...allyProps(1)} />
+//           <Tab label=" Skills Room" {...allyProps(2)} />
+//           <Tab label="Login/Logout" {...allyProps(3)} />
+//         </Tabs>
+//       </AppBar>
+//       <SwipeableViews
+//       axix={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+//       index={value}
+//       onChangeIndex={handleChangeIndex}
+//       >
+//         <TabPanel value={value} index={0} dir={theme.direction}>
+//           Profile
+//         </TabPanel>
+//         <TabPanel value={value} index={1} dir={theme.direction}>
+//           Available Jobs
+//         </TabPanel>
+//         <TabPanel value={value} index={2} dir={theme.direction}>
+//           Skills Room
+//         </TabPanel>
+//         <TabPanel value={value} index={3} dir={theme.direction}>
+//           Login/Logout
+//         </TabPanel>
+//       </SwipeableViews>
+//     </Box>
+//   );
+// }

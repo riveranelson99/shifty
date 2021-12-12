@@ -12,11 +12,23 @@ export const LOGIN = gql`
   }
 `;
 
-// export const ADD_USER = gql`
-//   mutation addUser(username: String!, email: String!, password: String!) {
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+        # email
+        # bio
+        # workplaces
+        # rate
+        # employer
+      }
+    }
+  }
+`;
 
-//   }
-// `;
 
 // export const ADD_POST = gql`
 //   mutation addPost(postId: ID!, postTitle: String!, postContent: String!) {
@@ -35,6 +47,15 @@ export const LOGIN = gql`
 
 //   }
 // `;
+
+
+// export const EDIT_POST = gql`
+//   mutation editPost(postId: ID!, content: String!) {
+
+
+//   }
+// `;
+
 
 // export const EDIT_JOB = gql`
 //   mutation editJob(jobId: ID!) {
