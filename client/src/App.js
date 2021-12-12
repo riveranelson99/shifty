@@ -45,18 +45,17 @@ function App() {
         <div>
           {/* <StoreProvider> */}
             <Header />
-            {/* < Login />
-            < SignUp />
+            {/*             
             < Talent />
-            < Jobs /> */}
+             */}
             <Routes>
+              <Route exact path='/' element={<LandingPage />} />
               <Route exact path='/jobs' element={<Jobs />} />
-              {/* <Route exact path='/breakRoom' component={breakRoom} /> */}
-              {/* <Route exact path='/' component={LandingPage} /> */}
-              {/* <Route exact path='/Login' component={Login} /> */}
-              {/* <Route exact path='/logout' component={Logout} />
-              <Route exact path='/profile' component={Profile} />
-              <Route component={NoMatch} /> */}
+              <Route exact path='/login' element={<Login />} />
+              <Route exact path='/signup' element={<SignUp />} />
+              {/* <Route exact path='/breakRoom' element={<breakRoom />} /> */}
+              {/* <Route exact path='/logout' element={<Logout />} /> */}
+              {/* <Route exact path='/profile' component={<Profile />} /> */}
             </Routes>
           {/* </StoreProvider> */}
         </div>

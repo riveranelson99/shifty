@@ -157,12 +157,12 @@ export default function SignUp() {
 
                                     />
                                 </Grid>
-                                {/* <Grid item xs={12}>
+                                <Grid item xs={12}>
                                     <FormControlLabel
                                         control={<Switch value="employer" color="primary" />}
-                                        label="I am an employer and I would like to offer gigs on this Shifty!."
+                                        label="I am an employer and I would like to offer gigs on this Shifty!"
                                     />
-                                </Grid> */}
+                                </Grid>
                             </Grid>
                             <Button
                                 type="submit"
@@ -174,9 +174,9 @@ export default function SignUp() {
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <LinkTo href="#" variant="body2">
+                                    <Link to="/login">
                                         Already have an account? Sign in
-                                    </LinkTo>
+                                    </Link>
                                 </Grid>
                             </Grid>
                         </Box>
