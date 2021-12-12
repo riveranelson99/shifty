@@ -11,7 +11,7 @@ const Job = () => {
   const { loading, data } = useQuery(QUERY_JOBS);
 
   const jobs = data?.jobs || [];
-console.log(jobs)
+  console.log(jobs)
   return (
     <div>
       <h2>
@@ -22,8 +22,8 @@ console.log(jobs)
           <div>Loading...</div>
         ) : (
           <JobList
-          jobs={jobs}
-          title="Here's the current list of jobs available..."
+            jobs={jobs}
+            title="Here's the current list of jobs available..."
           />
         )}
       </div>
