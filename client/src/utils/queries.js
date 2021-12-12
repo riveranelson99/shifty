@@ -26,8 +26,6 @@ export const QUERY_SINGLE_JOB = gql`
   }
 `;
 
-
-
 export const QUERY_USER = gql`
   query getUsers($category: ID) {
       users(category: $category) {

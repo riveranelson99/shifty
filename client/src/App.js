@@ -16,6 +16,7 @@ import Header from './components/Header/Header';
 import Jobs from './pages/Jobs';
 import Login from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
+import Talent from './pages/TalentPage';
 
 // import SignUp from './pages/SignUp';
 
@@ -47,6 +48,7 @@ function App() {
             <Header />
             < Login />
             < SignUp />
+            < Talent />
             {/* < Jobs /> */}
             <Routes>
               {/* <Route exact path='/' component={LandingPage} /> */}
