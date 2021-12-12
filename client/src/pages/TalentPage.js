@@ -6,7 +6,6 @@ import { QUERY_USERS } from '../utils/queries';
 
 
 const Talent = () => {
-    // const { jobId } = useParams();
 
     const { loading, data } = useQuery(QUERY_USERS);
 

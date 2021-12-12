@@ -51,6 +51,7 @@ function App() {
             <Header />
             < Login />
             < SignUp />
+            < Talent />
             {/* < Jobs /> */}
             <Routes>
               {/* <Route exact path='/' component={LandingPage} /> */}

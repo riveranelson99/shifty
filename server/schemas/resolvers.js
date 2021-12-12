@@ -14,7 +14,7 @@ const resolvers = {
       return await User.find();
     },
     user: async (parents, { userId }) => {
-      return await User.findOne({ username });
+      return await User.findOne({ _id: userId });
     },
     posts: async () => {
       return await Post.find();
