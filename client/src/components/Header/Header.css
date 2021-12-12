@@ -1,0 +1,18 @@
+#banner {
+  background-image: url(../../images/hospitality_2.jpg);
+  height: 15%;
+  width: 100%;
+  margin: 0px;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+Button[type="button"] {
+  margin-right: 5px;
+}
+
+#title {
+  font-family: Luminari, fantasy;
+  font-size: 50px;
+}
