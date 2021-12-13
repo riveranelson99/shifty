@@ -61,6 +61,7 @@ query allUsers {
     _id
     username
     email
+    bio
     workplaces
     rate
     }
