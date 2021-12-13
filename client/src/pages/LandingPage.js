@@ -6,7 +6,7 @@ export default function LandingPage() {
     // static header holding nav bar
     <Box sx={{ width: "85vw", margin: 4 }}>
       <Typography id="landingPage-heading" variant="h4" component="div" align="center" marginBottom="4" >
-        Shifty is a job marketplace used to fill in last minute bartending positions for events for teams, pop ups or restaurants.
+        Shifty is a job marketplace used to fill in last minute bartending positions for events teams, pop ups or restaurants.
       </Typography>
       <Typography id="landingPage-body" variant="body1" component="div" align="center" lineHeight="2" >
       <br />
