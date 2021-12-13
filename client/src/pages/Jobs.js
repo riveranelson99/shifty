@@ -1,7 +1,6 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import JobList from '../components/JobList';
 import { QUERY_JOBS } from '../utils/queries';
 

@@ -54,16 +54,14 @@ query getPosts($category: ID) {
 
 
 export const QUERY_USERS = gql`
-  query allUsers {
-    users {
-      _id
-      username
-      email
-      password
-      bio
-      employer
-      workplaces
-      rate
+query allUsers {
+  users {
+    _id
+    username
+    email
+    bio
+    workplaces
+    rate
     }
   }
 `;
