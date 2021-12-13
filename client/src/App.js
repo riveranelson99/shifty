@@ -17,6 +17,7 @@ import Footer from './components/Footer/Footer'
 import Jobs from './pages/Jobs';
 import Login from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
+import Posts from './pages/Posts';
 import Talent from './pages/TalentPage';
 
 const httpLink = createHttpLink({
@@ -54,6 +55,7 @@ function App() {
               <Route exact path='/jobs' element={<Jobs />} />
               <Route exact path='/login' element={<Login />} />
               <Route exact path='/signup' element={<SignUp />} />
+              <Route exact path='/breakRoom' element={<Posts />} />
               {/* <Route exact path='/breakRoom' element={<breakRoom />} /> */}
               {/* <Route exact path='/logout' element={<Logout />} /> */}
               {/* <Route exact path='/profile' component={<Profile />} /> */}

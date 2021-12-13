@@ -1,7 +1,7 @@
 {
   "name": "shifty-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project 3",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
@@ -17,5 +17,13 @@
   },
   "dependencies": {
     "@mui/material": "^5.2.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riveranelson99/shifty.git"
+  },
+  "bugs": {
+    "url": "https://github.com/riveranelson99/shifty/issues"
+  },
+  "homepage": "https://github.com/riveranelson99/shifty#readme"
 }
