@@ -41,7 +41,7 @@ function Header() {
               </Button>
             </Link>
 
-          </Typography>
+          <Typography>
           {/* this is the only location referencing breakRoom-button */}
           {/* It also underlined the words in the button */}
           <Link className="talent-button" to="/talent">
