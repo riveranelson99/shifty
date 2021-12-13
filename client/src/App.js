@@ -47,15 +47,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+    
             <Header />
             <Box 
               sx={{
                 minHeight:'62vh',
                 bgcolor: 'grey.300',
                 // mx: 0.5,
-                width: '100%',
+                width: '100vw',
                 display: 'inline-block',
+                
               }}>
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
@@ -68,7 +69,7 @@ function App() {
                 {/* <Route exact path='/profile' component={<Profile />} /> */}
               </Routes>
             </Box>
-        </div>
+      
         <Footer />
       </Router>
 
