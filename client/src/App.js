@@ -71,6 +71,7 @@ function App() {
             </Box>
       
         <Footer />
+
       </Router>
 
     </ApolloProvider>

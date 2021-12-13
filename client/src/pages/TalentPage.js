@@ -16,7 +16,7 @@ const Talent = () => {
     return (
         <div>
             <h2>
-                Available for Work!
+                Checkout the talent! Click the email link to connect! 
             </h2>
             <div>
                 {loading ? (
