@@ -27,7 +27,7 @@ function Header() {
   };
   return (
     <header>
-      <AppBar id="banner">
+      <AppBar id="banner" position="sticky">
         <StyledToolbar>
           {/* this is the only location referencing landing-button */}
           {/* When I linked it, it changed the color, and underlined it */}
