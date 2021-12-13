@@ -28,7 +28,6 @@ function Header() {
   return (
     <header>
       <AppBar id="banner" position="sticky" >
-        {/* <Box sx={{ display: 'flex', flexWrap: 'wrap', }}> */}
           <StyledToolbar>
             <Typography id="title" variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <Link className="landing-button btn" to="/">
@@ -40,37 +39,22 @@ function Header() {
                 Jobs
               </Button>
             </Link>
-
-          {/* this is the only location referencing breakRoom-button */}
-          {/* It also underlined the words in the button */}
-          <Link className="talent-button" to="/talent">
+          <Link className="talent-button btn" to="/talent">
           <Button color="primary" variant="contained">
             Talent
           </Button>
           </Link>
-          {/* this is the only location referencing jobs-button */}
-          {/* It also underlined the words in the button */}
-          <Link className="jobs-button" to="/jobs">
-            <Button color="primary" variant="contained">
-              Jobs
-            </Button>
-          </Link>
-          {/* this is the only location referencing breakRoom-button */}
-          {/* It also underlined the words in the button */}
-          <Link className="breakRoom-button" to="/breakRoom">
+          <Link className="breakRoom-button btn" to="/breakRoom">
           <Button color="primary" variant="contained">
             Break Room
           </Button>
           </Link>
-          {/* this is the only location referencing login-button */}
-          {/* It also underlined the words in the button */}
-          <Link className="login-button" to="/login">
+          <Link className="login-button btn" to="/login">
             <Button color="primary" variant="contained">
               Login / Signup
             </Button>
           </Link>
         </StyledToolbar>
-
       </AppBar>
     </header>
   )
