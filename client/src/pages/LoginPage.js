@@ -115,28 +115,24 @@ export default function Login(props) {
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
                                 >
-                                    Sign In
+                                    Login
                                 </Button>
                                 <Grid container>
                                     <Grid item>
-
-                                        {/* <Link to={SignUp}>Don't have an account? Sign Up</Link> */}
-                                        {/* <Linkto href="#" variant="body2">
-                                        {"Don't have an account? Sign Up"}
-                                    </Linkto> */}
-                                    </Grid>
+                                    <Link to="/signup">Don't have an account? Sign Up</Link>
                                 </Grid>
+                            </Grid>
                             </Box>
                         )}
-                        {error && (
-                            <div>
-                                {error.message}
-                            </div>
-                        )}
-                    </Box>
+                    {error && (
+                        <div>
+                            {error.message}
+                        </div>
+                    )}
+                </Box>
 
-                </Container>
-            </ThemeProvider>
-        </div>
+            </Container>
+        </ThemeProvider>
+        </div >
     );
 }

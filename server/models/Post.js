@@ -8,15 +8,15 @@ const postSchema = new Schema ({
         required: true,
         trim: true
     },
-    datePosted: {
-        type: Date,
-        required: true,
-        get: (timestamp) => dateFormat(timestamp)
-    },
     content: {
         type: String,
         required: true,
         trim: true
+    },
+    datePosted: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
     }
 });
 

@@ -26,8 +26,6 @@ export const QUERY_SINGLE_JOB = gql`
   }
 `;
 
-
-
 export const QUERY_USER = gql`
   query getUsers($category: ID) {
       users(category: $category) {
@@ -65,15 +63,15 @@ query allUsers {
     workplaces
     rate
     }
-}
-
+  }
 `;
 
 export const QUERY_POSTS = gql` 
-  {
-    _id
-        title
-        content
-        date
+  query allPosts {
+    posts {
+      _id
+      title
+      content
+    }
   }
 `;
