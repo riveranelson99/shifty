@@ -2,28 +2,29 @@ import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-import JobList from '../components/JobList';
-import { QUERY_JOBS } from '../utils/queries';
+import TalentList from '../components/TalentList';
+import { QUERY_USERS } from '../utils/queries';
+
 
 const Talent = () => {
-    // const { jobId } = useParams();
+    // const { userId } = use Params();
 
-    const { loading, data } = useQuery(QUERY_JOBS);
+    const { loading, data } = useQuery(QUERY_USERS);
 
-    const jobs = data?.jobs || [];
-    console.log(jobs)
+    const users = data?.users || [];
+    console.log(users)
     return (
         <div>
             <h2>
-                Available Jobs!
+                Available for Work!
             </h2>
             <div>
                 {loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <JobList
-                        jobs={jobs}
-                        title="Here's the current list of jobs available..."
+                    <TalentList
+                        users={users}
+                        title="Here's the current list of bartending talent available..."
                     />
                 )}
             </div>

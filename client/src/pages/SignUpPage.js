@@ -1,10 +1,17 @@
 import * as React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
+
+//styling
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+import Switch from '@mui/material/Switch';
 import LinkTo from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -12,11 +19,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
+
 
 const theme = createTheme();
 
@@ -25,6 +28,9 @@ export default function SignUp() {
         username: '',
         email: '',
         password: '',
+        bio: '',
+        workplaces: '',
+        rate: '',
     });
     const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -53,6 +59,7 @@ export default function SignUp() {
     };
 
     return (
+
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -70,106 +77,117 @@ export default function SignUp() {
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    autoComplete="User Name"
-                                    name="userName"
-                                    required
-                                    fullWidth
-                                    id="userName"
-                                    label="User Name"
-                                    autoFocus
-                                    value={formState.userName}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="email"
-                                    value={formState.email}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="new-password"
-                                    value={formState.password}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    required
-                                    fullWidth
-                                    name="bio"
-                                    label="Short Bio 240 characters or less"
-                                    id="bio"
-                                    autoComplete="Short Bio"
-                                    value={formState.bio}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    name="workplaces"
-                                    label="Past Employers"
-                                    id="workplaces"
-                                    autoComplete="Past Employers"
-                                    value={formState.workplaces}
-                                    onChange={handleChange}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    fullWidth
-                                    name="rate"
-                                    label="Pay Rate Per Hour"
-                                    id="rate"
-                                    autoComplete="Pay Rate"
-                                    value={formState.rate}
-                                    onChange={handleChange}
+                    {data ? (
+                        <p>Success! You may now head {' '}
+                            <Link to='/'>back to the homepage.</Link>
+                        </p>
+                    ) : (
+                        <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="username"
+                                        label="Username"
+                                        name="username"
+                                        autoComplete="username"
+                                        // autoFocus
+                                        value={formState.name}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoComplete="email"
+                                        value={formState.email}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        autoComplete="password"
+                                        value={formState.password}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        name="bio"
+                                        label="Short Bio 240 characters or less"
+                                        id="bio"
+                                        autoComplete="bio"
+                                        value={formState.bio}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        name="workplaces"
+                                        label="Previous Workplaces"
+                                        id="workplaces"
+                                        autoComplete="workplaces"
+                                        value={formState.workplaces}
+                                        onChange={handleChange}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        name="rate"
+                                        label="Pay Rate Per Hour"
+                                        id="rate"
+                                        autoComplete="rate"
+                                        value={formState.rate}
+                                        onChange={handleChange}
 
-                                />
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControlLabel
+                                        control={<Switch value="employer" color="primary" />}
+                                        label="I am an employer and I would like to offer gigs on this Shifty!"
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={12}>
-                                <FormControlLabel
-                                    control={<Checkbox value="employer" color="primary" />}
-                                    label="I am an employer and I would like to offer gigs on this Shifty!."
-                                />
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                            >
+                                Sign Up
+                            </Button>
+                            <Grid container justifyContent="flex-end">
+                                <Grid item>
+                                    <Link to="/login">
+                                        Already have an account? Sign in
+                                    </Link>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                        >
-                            Sign Up
-                        </Button>
-                        <Grid container justifyContent="flex-end">
-                            <Grid item>
-                                <LinkTo href="#" variant="body2">
-                                    Already have an account? Sign in
-                                </LinkTo>
-                            </Grid>
-                        </Grid>
-                    </Box>
+                        </Box>
+                    )}
+                    {error && (
+                        <div>
+                            {error.message}
+                        </div>
+                    )}
                 </Box>
             </Container>
         </ThemeProvider>
     );
-}
+};
