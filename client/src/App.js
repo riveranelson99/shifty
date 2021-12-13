@@ -56,6 +56,7 @@ function App() {
                 // mx: 0.5,
                 width: '100vw',
                 display: 'inline-block',
+                padding: 4,
                 
               }}>
               <Routes>
