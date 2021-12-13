@@ -1,9 +1,11 @@
-import { AppBar, Button, Toolbar, Typography } from "@mui/material";
-import Auth from '../../utils/auth';
+import React from "react";
 import { Link } from 'react-router-dom';
-import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
+import { AppBar, Button, Toolbar, IconButton, Typography } from "@mui/material";
 import './Header.css'
+// import MenuIcon from '@mui/icons-material/Menu';
+
+import Auth from '../../utils/auth';
 
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -14,18 +16,15 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   paddingRight: theme.spacing(1),
   // Override media queries injected by theme.mixins.toolbar
   '@media all': {
-    minHeight: 128,
+    minHeight: '20vh',
   },
 }));
 
 function Header() {
-  const [showModal, setShowModal] = useState(false);
-
-  // const logout = (event) => {
-  //   event.preventDefault();
-  //   Auth.logout();
-  // };
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <header>
       <AppBar id="banner" position="sticky">
@@ -47,34 +46,17 @@ function Header() {
           {/* this is the only location referencing breakRoom-button */}
           {/* It also underlined the words in the button */}
           <Link className="breakRoom-button" to="/breakRoom">
-            <Button color="primary" variant="contained">
-              Break Room
-            </Button>
+          <Button color="primary" variant="contained">
+            Break Room
+          </Button>
           </Link>
           {/* this is the only location referencing login-button */}
           {/* It also underlined the words in the button */}
-
-          {/* <Link className="login-button" to="/login">
+          <Link className="login-button" to="/login">
             <Button color="primary" variant="contained">
               Login / Signup
             </Button>
-          </Link> */}
-
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="login-button" to="/login" onClick={Auth.logout}>
-                <Button color="primary" variant="contained">
-                  Logout
-                </Button>
-              </Link>
-            </>
-          ) : (
-            <Link className="login-button" to="/login" onClick={() => setShowModal(true)}>
-              <Button color="primary" variant="contained">
-                Login / Signup
-              </Button>
-            </Link>
-          )}
+          </Link>
         </StyledToolbar>
       </AppBar>
     </header>
