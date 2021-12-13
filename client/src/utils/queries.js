@@ -13,6 +13,20 @@ export const QUERY_JOBS = gql`
   }
 `;
 
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      workplaces
+      rate
+      posts
+      jobs
+    }
+  }
+`;
+
 export const QUERY_SINGLE_JOB = gql`
   query singleJob($jobId: ID!) {
     job(jobId: $jobId) {

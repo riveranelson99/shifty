@@ -3,6 +3,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import PostList from '../components/PostList';
+import PostForm from '../components/PostForm';
 
 import { QUERY_POSTS } from '../utils/queries';
 
@@ -13,6 +14,10 @@ const Posts = () => {
     console.log(posts);
     return (
       <div>
+              <h2>
+        Add your thoughts!
+      </h2>
+        <PostForm/>
       <h2>
         Read what people have been saying!
       </h2>
