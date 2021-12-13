@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { styled } from "@mui/material/styles";
-import { AppBar, Button, Toolbar, IconButton, Typography } from "@mui/material";
+import { AppBar, Button, Toolbar, IconButton, Typography, Box } from "@mui/material";
 import './Header.css'
 // import MenuIcon from '@mui/icons-material/Menu';
 
@@ -16,7 +16,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   paddingRight: theme.spacing(1),
   // Override media queries injected by theme.mixins.toolbar
   '@media all': {
-    minHeight: 128,
+    minHeight: '20vh',
   },
 }));
 
@@ -27,14 +27,20 @@ function Header() {
   };
   return (
     <header>
-      <AppBar id="banner" position="sticky">
-        <StyledToolbar>
-          {/* this is the only location referencing landing-button */}
-          {/* When I linked it, it changed the color, and underlined it */}
-          <Typography id="title" variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link className="landing-button" to="/">
-              Shifty
+      <AppBar id="banner" position="sticky" >
+        {/* <Box sx={{ display: 'flex', flexWrap: 'wrap', }}> */}
+          <StyledToolbar>
+            <Typography id="title" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              <Link className="landing-button btn" to="/">
+                Shifty
+              </Link>
+            </Typography>
+            <Link className="jobs-button btn" to="/jobs">
+              <Button color="primary" variant="contained">
+                Jobs
+              </Button>
             </Link>
+
           </Typography>
           {/* this is the only location referencing breakRoom-button */}
           {/* It also underlined the words in the button */}
@@ -65,6 +71,7 @@ function Header() {
             </Button>
           </Link>
         </StyledToolbar>
+
       </AppBar>
     </header>
   )

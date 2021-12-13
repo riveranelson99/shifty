@@ -7,6 +7,9 @@ import {
 } from '@apollo/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import { palette } from '@mui/system';
+import { sizing } from '@mui/system';
+import Box from '@mui/material/Box';
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -19,6 +22,7 @@ import Login from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
 import Posts from './pages/Posts';
 import Talent from './pages/TalentPage';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -42,29 +46,34 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* < Talent /> */}
       <Router>
-        <div>
-          {/* <StoreProvider> */}
+    
             <Header />
-            {/*             
-            < Talent />
-             */}
-            <Routes>
-              <Route exact path='/' element={<LandingPage />} />
-              <Route exact path='/jobs' element={<Jobs />} />
-              <Route exact path='/login' element={<Login />} />
-              <Route exact path='/signup' element={<SignUp />} />
-              <Route exact path='/breakRoom' element={<Posts />} />
-              <Route exact path='/talent' element={<Talent />} />
-              {/* <Route exact path='/breakRoom' element={<breakRoom />} /> */}
-              {/* <Route exact path='/logout' element={<Logout />} /> */}
-              {/* <Route exact path='/profile' component={<Profile />} /> */}
-            </Routes>
-          {/* </StoreProvider> */}
-        </div>
+            <Box 
+              sx={{
+                minHeight:'62vh',
+                bgcolor: 'grey.300',
+                // mx: 0.5,
+                width: '100vw',
+                display: 'inline-block',
+                
+              }}>
+              <Routes>
+                <Route exact path='/' element={<LandingPage />} />
+                <Route exact path='/jobs' element={<Jobs />} />
+                <Route exact path='/login' element={<Login />} />
+                <Route exact path='/signup' element={<SignUp />} />
+                <Route exact path='/breakRoom' element={<Posts />} />
+
+                {/* <Route exact path='/logout' element={<Logout />} /> */}
+                {/* <Route exact path='/profile' component={<Profile />} /> */}
+              </Routes>
+            </Box>
+      
+        <Footer />
+
       </Router>
-      <Footer />
+
     </ApolloProvider>
   );
 }
