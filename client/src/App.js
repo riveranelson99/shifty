@@ -13,6 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer'
 import Jobs from './pages/Jobs';
 import Login from './pages/LoginPage';
 import SignUp from './pages/SignUpPage';
@@ -60,6 +61,7 @@ function App() {
           {/* </StoreProvider> */}
         </div>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
