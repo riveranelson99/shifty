@@ -13,6 +13,7 @@ import { setContext } from '@apollo/client/link/context';
 import LandingPage from './pages/LandingPage';
 import Nav from './components/Nav';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer'
 import Jobs from './pages/Jobs';
 
 import Login from './pages/LoginPage'
@@ -45,21 +46,22 @@ function App() {
       <Router>
         <div>
           {/* <StoreProvider> */}
-            <Header />
-            {/* < Login /> */}
-            {/* < SignUp /> */}
-            <Routes>
-              <Route exact path='/' component={LandingPage} />
-              <Route exact path='/Login' component={Login} />
-              {/* <Route exact path='/logout' component={Logout} />
+          <Header />
+          {/* < Login /> */}
+          {/* < SignUp /> */}
+          <Routes>
+            <Route exact path='/' component={LandingPage} />
+            <Route exact path='/Login' component={Login} />
+            {/* <Route exact path='/logout' component={Logout} />
               <Route exact path='/profile' component={Profile} />
               <Route exact path='/jobs' component={Jobs} />
               <Route exact path='/breakRoom' component={breakRoom} />
-              <Route component={NoMatch} /> */}
-            </Routes>
+            <Route component={NoMatch} /> */}
+          </Routes>
           {/* </StoreProvider> */}
         </div>
       </Router>
+      <Footer />
     </ApolloProvider>
   );
 }
