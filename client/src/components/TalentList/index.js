@@ -16,12 +16,20 @@ const TalentList = ({ users }) => {
                                 <h4 className="card-header bg-dark text-light p-2 m-0">
                                     {user.username} <br />
                                     <span className="text-white" style={{ fontSize: '1rem' }}>
+                                        Contact:
+                                        {user.email}
+                                    </span>
+                                    <span className="text-white" style={{ fontSize: '1rem' }}>
                                         Bio:
                                         {user.bio}
                                     </span>
                                     <span className="text-white" style={{ fontSize: '1rem' }}>
                                         Contact:
-                                        {user.email}
+                                        {user.workplaces}
+                                    </span>
+                                    <span className="text-white" style={{ fontSize: '1rem' }}>
+                                        Contact:
+                                        {user.rate}/hr
                                     </span>
                                 </h4>
                             </div>
