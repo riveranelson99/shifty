@@ -8,6 +8,7 @@ import {
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { palette } from '@mui/system';
+import { sizing } from '@mui/system';
 import Box from '@mui/material/Box';
 
 import { setContext } from '@apollo/client/link/context';
@@ -48,7 +49,7 @@ function App() {
       <Router>
         <div>
             <Header />
-            <Box sx={{ bgcolor: 'text.secondary', color: 'background.paper', p: 2 }}>
+            <Box sx={{ bgcolor: 'text.secondary', color: 'background.paper', p: 2, width: 'auto', height:'50%', }}>
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
                 <Route exact path='/jobs' element={<Jobs />} />
