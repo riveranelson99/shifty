@@ -16,7 +16,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   paddingRight: theme.spacing(1),
   // Override media queries injected by theme.mixins.toolbar
   '@media all': {
-    minHeight: 128,
+    minHeight: '20vh',
   },
 }));
 
@@ -27,7 +27,7 @@ function Header() {
   };
   return (
     <header>
-      <AppBar id="banner">
+      <AppBar id="banner" position="sticky">
         <StyledToolbar>
           {/* this is the only location referencing landing-button */}
           {/* When I linked it, it changed the color, and underlined it */}
