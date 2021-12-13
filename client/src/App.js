@@ -56,6 +56,7 @@ function App() {
                 // mx: 0.5,
                 width: '100vw',
                 display: 'inline-block',
+                padding: 4,
                 
               }}>
               <Routes>
@@ -64,7 +65,7 @@ function App() {
                 <Route exact path='/login' element={<Login />} />
                 <Route exact path='/signup' element={<SignUp />} />
                 <Route exact path='/breakRoom' element={<Posts />} />
-
+                <Route exact path='/talent' element={<Talent />} />
                 {/* <Route exact path='/logout' element={<Logout />} /> */}
                 {/* <Route exact path='/profile' component={<Profile />} /> */}
               </Routes>
