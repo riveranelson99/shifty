@@ -4,10 +4,10 @@ const PostList = ({ posts }) => {
     if (!posts.length) {
         return <h3>No Posts Yet</h3>
     }
+    console.log(posts);
 
     return (
         <div>
-          <h3 className="text-primary">{title}</h3>
           <div className="flex-row justify-space-between my-4">
             {posts &&
               posts.map((post) => (

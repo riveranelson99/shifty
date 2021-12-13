@@ -69,10 +69,11 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_POSTS = gql` 
-  {
-    _id
-        title
-        content
-        date
+  query allPosts {
+    posts {
+      _id
+      title
+      content
+    }
   }
 `;

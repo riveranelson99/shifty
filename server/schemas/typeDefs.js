@@ -15,8 +15,8 @@ const typeDefs = gql`
   type Post {
     _id: ID!
     title: String!
-    content: String! 
     date: String
+    content: String!
   }
 
   type Job {
