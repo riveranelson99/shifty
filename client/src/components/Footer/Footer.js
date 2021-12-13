@@ -10,7 +10,7 @@ import './Footer.css'
 function Footer() {
   return (
     <footer>
-      <AppBar position="sticky" color="primary" sx={{ top: 'auto', bottom: 0, }}>
+      <AppBar position="sticky" color="primary" sx={{ top: 'auto', bottom: 0, minHeight: '7vh', }}>
         <Container maxWidth="lg">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={2}>

@@ -49,7 +49,14 @@ function App() {
       <Router>
         <div>
             <Header />
-            <Box sx={{ bgcolor: 'text.secondary', color: 'background.paper', p: 2, width: 'auto', height:'50%', }}>
+            <Box 
+              sx={{
+                minHeight:'62vh',
+                bgcolor: 'grey.300',
+                // mx: 0.5,
+                width: '100%',
+                display: 'inline-block',
+              }}>
               <Routes>
                 <Route exact path='/' element={<LandingPage />} />
                 <Route exact path='/jobs' element={<Jobs />} />
