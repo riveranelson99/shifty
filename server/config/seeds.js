@@ -9,12 +9,12 @@ try {
   const posts = await Post.insertMany([
     {
       title: 'Interesting tidbit',
-      content: 'Did you know a margarita has different flavors',
+      content: 'Did you know a margarita has different flavors.',
       datePosted: '12/13/21',
     },
     {
       title: 'Did you know',
-      content: 'Liquor is a liquid',
+      content: 'Liquor is a liquid.',
       datePosted: '12/09/21',
     },
     {
