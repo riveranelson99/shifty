@@ -36,6 +36,13 @@ function Header() {
               Shifty
             </Link>
           </Typography>
+          {/* this is the only location referencing breakRoom-button */}
+          {/* It also underlined the words in the button */}
+          <Link className="talent-button" to="/talent">
+          <Button color="primary" variant="contained">
+            Talent
+          </Button>
+          </Link>
           {/* this is the only location referencing jobs-button */}
           {/* It also underlined the words in the button */}
           <Link className="jobs-button" to="/jobs">

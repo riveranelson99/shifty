@@ -56,6 +56,7 @@ function App() {
               <Route exact path='/login' element={<Login />} />
               <Route exact path='/signup' element={<SignUp />} />
               <Route exact path='/breakRoom' element={<Posts />} />
+              <Route exact path='/talent' element={<Talent />} />
               {/* <Route exact path='/breakRoom' element={<breakRoom />} /> */}
               {/* <Route exact path='/logout' element={<Logout />} /> */}
               {/* <Route exact path='/profile' component={<Profile />} /> */}

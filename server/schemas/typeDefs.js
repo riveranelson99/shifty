@@ -6,7 +6,7 @@ const typeDefs = gql`
       username: String!
       email: String 
       workplaces: [String]
-      rate: Int!
+      rate: Int
       bio: String
       posts: [Post]
       jobs: [Job]
