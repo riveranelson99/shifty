@@ -40,18 +40,38 @@ function Header() {
                 Jobs
               </Button>
             </Link>
-            <Link className="breakRoom-button btn" to="/breakRoom">
-              <Button color="primary" variant="contained">
-                Break Room
-              </Button>
-            </Link>
-            <Link className="login-button btn" to="/login">
-              <Button color="primary" variant="contained">
-                Login / Signup
-              </Button>
-            </Link>
-          </StyledToolbar>
-        {/* </Box> */}
+
+          </Typography>
+          {/* this is the only location referencing breakRoom-button */}
+          {/* It also underlined the words in the button */}
+          <Link className="talent-button" to="/talent">
+          <Button color="primary" variant="contained">
+            Talent
+          </Button>
+          </Link>
+          {/* this is the only location referencing jobs-button */}
+          {/* It also underlined the words in the button */}
+          <Link className="jobs-button" to="/jobs">
+            <Button color="primary" variant="contained">
+              Jobs
+            </Button>
+          </Link>
+          {/* this is the only location referencing breakRoom-button */}
+          {/* It also underlined the words in the button */}
+          <Link className="breakRoom-button" to="/breakRoom">
+          <Button color="primary" variant="contained">
+            Break Room
+          </Button>
+          </Link>
+          {/* this is the only location referencing login-button */}
+          {/* It also underlined the words in the button */}
+          <Link className="login-button" to="/login">
+            <Button color="primary" variant="contained">
+              Login / Signup
+            </Button>
+          </Link>
+        </StyledToolbar>
+
       </AppBar>
     </header>
   )
