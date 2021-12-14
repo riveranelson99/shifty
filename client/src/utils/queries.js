@@ -13,6 +13,23 @@ export const QUERY_JOBS = gql`
   }
 `;
 
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      username
+      email
+      password
+      bio
+      employer
+      workplaces
+      rate
+      posts
+      jobs
+    }
+  }
+`;
+
 export const QUERY_SINGLE_JOB = gql`
   query singleJob($jobId: ID!) {
     job(jobId: $jobId) {
@@ -71,6 +88,7 @@ export const QUERY_POSTS = gql`
       title
       content
       datePosted
+      author
     }
   }
 `;

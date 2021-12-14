@@ -1,6 +1,10 @@
 import decode from 'jwt-decode';
 
 class AuthService {
+    getUser() {
+        return decode(this.getToken());
+    }
+
     getProfile() {
         return decode(this.getToken());
     }
