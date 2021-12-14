@@ -17,6 +17,11 @@ const jobSchema = new Schema({
         required: true,
         min: 0,
     },
+    datePosted: {
+        type: Date,
+        default: Date.now,
+        // get: (timestamp) => dateFormat(timestamp),
+    },
     startDate: {
         type: Date,
         required: true,
