@@ -25,10 +25,12 @@ const jobSchema = new Schema({
     startDate: {
         type: Date,
         required: true,
+        get: (timestamp) => dateFormat(timestamp),
     },
     endDate: {
         type: Date,
         required: true,
+        get: (timestamp) => dateFormat(timestamp),
     }
 });
 

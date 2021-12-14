@@ -53,10 +53,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, { content }, context) => {
+    addPost: async (parent, { title, content }, context) => {
       if (context.user) {
         console.log('Before post creation.')
         const post = await Post.create({
+          title,
           content,
           author: context.user.username,
         });

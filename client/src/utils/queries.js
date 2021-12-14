@@ -68,8 +68,6 @@ query getPosts($category: ID) {
   }
 `;
 
-
-
 export const QUERY_USERS = gql`
 query allUsers {
   users {
@@ -89,6 +87,8 @@ export const QUERY_POSTS = gql`
       _id
       title
       content
+      datePosted
+      author
     }
   }
 `;

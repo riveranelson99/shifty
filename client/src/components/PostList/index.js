@@ -18,6 +18,9 @@ const PostList = ({ posts }) => {
                   {post.title}
                 </h4>
                 <Box component="span" sx={{ display: "block" }}>
+                  Written by {post.author}.
+                </Box>
+                <Box component="span" sx={{ display: "block" }}>
                   {post.content}
                 </Box>
                 <Box component="span" sx={{ display: "block" }}>
