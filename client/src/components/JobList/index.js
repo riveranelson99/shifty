@@ -17,7 +17,7 @@ const JobList = ({ jobs }) => {
             jobs.map((job) => (
               <div key={job._id} className="col-12 col-xl-6">
                 <div className="card mb-3">
-                  <h4 className="card-header bg-dark text-light p-2 m-0">
+                  <h4 className="card-header bg-dark text-light">
                     {job.jobTitle}
                   </h4>
                   <Box component="span" sx={{ display: "block" }}>
@@ -32,6 +32,7 @@ const JobList = ({ jobs }) => {
                   <Box component="span" sx={{ display: "block" }}>
                     End Date: {job.endDate}
                   </Box>
+                  <br />
                   <br />
                 </div>
               </div>

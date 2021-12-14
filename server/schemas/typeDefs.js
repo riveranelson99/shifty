@@ -58,7 +58,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(title: String, content: String!): Post
-    addJob(jobTitle: String!, jobDescription: String!, rate: Int!, startDate: String!, endDate: String!): Job
+    addJob(jobTitle: String!, description: String!, rate: Int!, startDate: String!, endDate: String!): Job
     editPost(postId: ID!, content: String!): Post
     editJob(jobId: ID!): Job
     deletePost(postId: ID!): Post

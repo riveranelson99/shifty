@@ -15,9 +15,11 @@ const Job = () => {
       <h2>
         Available Jobs!
       </h2>
-      <h3>
+      <h4>
       Have a job you need filled?
-      </h3>
+      <br/>
+      Post your job and find the talent you need!
+      </h4>
       <JobForm />
       <div>
         {loading ? (

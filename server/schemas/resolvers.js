@@ -81,7 +81,6 @@ const resolvers = {
         rate,
         startDate,
         endDate,
-        author: context.user.username,
         });
         console.log('After job creation');
         await User.findOneAndUpdate(
