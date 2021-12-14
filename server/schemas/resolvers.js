@@ -48,8 +48,8 @@ const resolvers = {
 
       return { token, user };
     },
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
+    addUser: async (parent, { username, email, password, bio, workplaces, rate }) => {
+      const user = await User.create({ username, email, password, bio, workplaces, rate });
       const token = signToken(user);
       return { token, user };
     },
@@ -63,8 +63,8 @@ const resolvers = {
         });
         console.log('Post post post creation');
         await User.findOneAndUpdate(
-           { _id: context.user._id },
-           { $addToSet: {posts: post._id} }
+          { _id: context.user._id },
+          { $addToSet: { posts: post._id } }
         );
         console.log('Updated user');
         return post;
