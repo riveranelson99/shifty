@@ -15,7 +15,7 @@ const PostForm = () => {
   const [addPost, { error }] = useMutation(ADD_POST, {
     update(cache, { data: { addPost } }) {
       try {
-        const { posts } = cache.readQuery({ query: ADD_POST });
+        const { posts } = cache.readQuery({ query: QUERY_POSTS });
 
         cache.writeQuery({
           query: QUERY_POSTS,
@@ -26,11 +26,11 @@ const PostForm = () => {
       }
 
       
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, posts: [...me.posts, addPost] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, posts: [...me.posts, addPost] } },
+      // });
     },
   });
 
@@ -38,10 +38,9 @@ const PostForm = () => {
     event.preventDefault();
 
     try {
-        const title = "title";
+
       const { data } = await addPost({
         variables: {
-            title,
             content,
             author: Auth.getUser().data.username,
         },

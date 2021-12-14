@@ -19,6 +19,9 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      password
+      bio
+      employer
       workplaces
       rate
       posts
@@ -60,7 +63,7 @@ query getPosts($category: ID) {
         _id
         title
         content
-        date
+        datePosted
     }
   }
 `;

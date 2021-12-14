@@ -53,19 +53,23 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, { title, content }, context) => {
+    addPost: async (parent, { content }, context) => {
       if (context.user) {
+        console.log('Before post creation.')
         const post = await Post.create({
-          title,
           content,
           author: context.user.username,
         });
-
+        console.log('Post post post creation');
         await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: {posts: post._id} }
+           { _id: context.user._id },
+           { $addToSet: {posts: post._id} }
         );
+        console.log('Updated user');
+        return post;
       }
+      console.log('addPost resolver hit');
+      throw new Error('Add post failed.');
     },
     addJob: async (parent, args, context) => {
       if (context.user) {
