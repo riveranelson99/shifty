@@ -50,9 +50,8 @@ try {
   const jobs = await Job.insertMany([
     {
       jobTitle: 'Popup',
-      description: 'Open bar at a family reunion.',
+      description: 'Open bar at a family reunion',
       rate: 35,
-      datePosted: '12 / 12 / 21',
       startDate: '12 / 20 / 21',
       endDate: '12 / 20 / 21',
     },
@@ -60,7 +59,6 @@ try {
       jobTitle: 'Chilis',
       description: 'Bartending 4pm-12pm',
       rate: 15,
-      datePosted: '12 / 9 / 21',
       startDate: '12 / 11 / 21',
       endDate: '12 / 14 / 21',
     },
@@ -68,7 +66,6 @@ try {
       jobTitle: 'Portillos',
       description: 'Christmas party with cash bar',
       rate: 60,
-      datePosted: '12 / 07 / 21',
       startDate: '12 / 23 / 21',
       endDate: '12 / 24 / 21',
     },
@@ -76,7 +73,6 @@ try {
       jobTitle: 'Eberly',
       description: 'Christmas party with cash bar',
       rate: 60,
-      datePosted: '12 / 09 / 21',
       startDate: '12 / 23 / 21',
       endDate: '12 / 24 / 21',
     },
@@ -84,7 +80,6 @@ try {
       jobTitle: 'Cocktails and Culture',
       description: 'Popup at Museum of Science and Industry',
       rate: 55,
-      datePosted: '12 / 01 / 21',
       startDate: '12 / 11 / 21',
       endDate: '12 / 11 /21'
     }
