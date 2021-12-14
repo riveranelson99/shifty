@@ -43,18 +43,18 @@ export const ADD_POST = gql`
   }
 `
 
-
-// export const ADD_POST = gql`
-//   mutation addPost(postId: ID!, postTitle: String!, postContent: String!) {
-
-//   }
-// `;
-
-// export const ADD_JOB = gql`
-//   mutation addJob(jobId: ID!, jobTitle: String!, jobDescription: String!, jobRate: Int!, jobStartDate: String!, jobEndDate: String!) {
-
-//   }
-// `;
+export const ADD_JOB = gql`
+  mutation addJob($jobTitle: String!, $description: String!, $rate: Int!, $startDate: String!, $endDate: String!) {
+    addJob(jobTitle: $jobTitle, description: $description, rate: $rate, startDate: $startDate, endDate: $endDate) {
+      _id
+      jobTitle
+      description
+      rate
+      startDate
+      endDate
+    }
+  }
+`;
 
 // export const EDIT_POST = gql`
 //   mutation editPost(postId: ID!, content: String!) {
