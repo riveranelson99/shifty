@@ -16,7 +16,7 @@ const typeDefs = gql`
   type Post {
     _id: ID!
     title: String!
-    date: String
+    datePosted: String
     content: String!
   }
 
