@@ -6,10 +6,10 @@ const typeDefs = gql`
       username: String!
       email: String!
       password: String!
-      bio: String!
+      bio: String
       employer: Boolean
       workplaces: [String]
-      rate: Int!
+      rate: Int
       posts: [Post]
       jobs: [Job]
   }

@@ -49,11 +49,17 @@ function Header() {
             Break Room
           </Button>
           </Link>
+          {Auth.loggedIn() ? (
+            <Button  color="primary" variant="contained" onClick={logout}>
+              Logout
+            </Button>
+          ) : (
           <Link className="login-button btn" to="/login">
             <Button color="primary" variant="contained">
               Login / Signup
             </Button>
           </Link>
+          )}
         </StyledToolbar>
       </AppBar>
     </header>
