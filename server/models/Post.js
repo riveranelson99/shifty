@@ -17,7 +17,7 @@ const postSchema = new Schema ({
     datePosted: {
         type: Date,
         default: Date.now,
-        //get: (timestamp) => dateFormat(timestamp),
+        get: (timestamp) => dateFormat(timestamp),
     },
     author: {
         type: String,
