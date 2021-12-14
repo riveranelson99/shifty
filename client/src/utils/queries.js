@@ -30,18 +30,18 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_SINGLE_JOB = gql`
-  query singleJob($jobId: ID!) {
-    job(jobId: $jobId) {
-      _id
-      jobTitle
-      description
-      rate
-      startDate
-      endDate
-    }
-  }
-`;
+// export const QUERY_SINGLE_JOB = gql`
+//   query singleJob($jobId: ID!) {
+//     job(jobId: $jobId) {
+//       _id
+//       jobTitle
+//       description
+//       rate
+//       startDate
+//       endDate
+//     }
+//   }
+// `;
 
 export const QUERY_USER = gql`
   query getUsers($category: ID) {

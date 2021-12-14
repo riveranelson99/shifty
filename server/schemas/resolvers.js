@@ -4,7 +4,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    me: async (parents, args, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
@@ -13,13 +13,13 @@ const resolvers = {
     users: async () => {
       return await User.find();
     },
-    user: async (parents, { userId }) => {
+    user: async (parent, { userId }) => {
       return await User.findOne({ _id: userId });
     },
     posts: async () => {
       return await Post.find();
     },
-    post: async (parents, { postId }) => {
+    post: async (parent, { postId }) => {
       return await Post.findOne({ _id: postId });
     },
     jobs: async () => {
@@ -63,8 +63,8 @@ const resolvers = {
         });
         console.log('Post post post creation');
         await User.findOneAndUpdate(
-           { _id: context.user._id },
-           { $addToSet: {posts: post._id} }
+          { _id: context.user._id },
+          { $addToSet: { posts: post._id } }
         );
         console.log('Updated user');
         return post;
@@ -72,10 +72,27 @@ const resolvers = {
       console.log('addPost resolver hit');
       throw new Error('Add post failed.');
     },
-    addJob: async (parent, args, context) => {
+    addJob: async (parent, {jobTitle, description, rate, startDate, endDate}, context) => {
       if (context.user) {
-        return await Job.create(args)
+        console.log('Before job creation.')
+        const job = await Job.create({
+        jobTitle,
+        description,
+        rate,
+        startDate,
+        endDate,
+        author: context.user.username,
+        });
+        console.log('After job creation');
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { jobs: job._id } }
+        );
+        console.log('Updated user with new job');
+        return job;
       }
+      console.log('addJob resolver hit');
+      throw new Error('addJob failed.');
     },
     editPost: async (parent, { postId, content, date }, context) => {
       const updatedPost = await Post.findByIdAndUpdate(

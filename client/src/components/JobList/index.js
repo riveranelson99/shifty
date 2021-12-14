@@ -27,9 +27,6 @@ const JobList = ({ jobs }) => {
                     Rate: {job.rate}
                   </Box>
                   <Box component="span" sx={{ display: "block" }}>
-                    Posted On: {job.datePosted}
-                  </Box>
-                  <Box component="span" sx={{ display: "block" }}>
                     Start Date: {job.startDate}
                   </Box>
                   <Box component="span" sx={{ display: "block" }}>
