@@ -1,6 +1,5 @@
 #banner {
   background-image: url(../../images/hospitality_2.jpg);
-  height: 15%;
   width: 100%;
   margin: 0px;
   background-position: center center;
@@ -8,8 +7,10 @@
   background-repeat: no-repeat;
 }
 
-Button[type="button"] {
-  margin-right: 5px;
+.btn {
+  text-decoration: none;
+  color: white;
+  margin: 5px;
 }
 
 #title {
