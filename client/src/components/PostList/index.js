@@ -20,9 +20,9 @@ const PostList = ({ posts }) => {
                   <h4 className="card-header bg-dark text-light p-2 m-0">
                     {post.title}
                   </h4>
-                  <Box component="span" sx={{ display: "block" }}>
+                  {/* <Box component="span" sx={{ display: "block" }}>
                     Written by {post.author}.
-                  </Box>
+                  </Box> */}
                   <Box component="span" sx={{ display: "block" }}>
                     {post.content}
                   </Box>
